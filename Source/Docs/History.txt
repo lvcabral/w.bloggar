@@ -1,0 +1,902 @@
+Produto.....: w.bloggar - Universal WebBlog Client
+Arquivo.....: wbloggar.exe
+Documento...: Histórico das Alterações e Correções das Releases do Produto
+
+
+*** Release v4.03.0200 *** 06/06/2008 ***
+- Incluido tratamento de erro para o caso do xml de um GetPost vir sem data;
+
+*** Release v4.03.0199 *** 23/12/2007 ***
+- Includos dois botoes na janela de posts recentes para marcar todos e 
+  desmarcar todos os posts.
+- Incluído suporte ao padrão portable applications, se ele detecta a pasta 
+  Data abaixo da pasta da applicação.
+
+*** Release v4.02.0197 *** 28/10/2007 ***
+- Implementado o upload de arquivos usando a API metaWeblog;
+- Corrigido o tratamento de carregamento de categorias para considerar tanto
+  "description" como "title";
+- Incluido suporte ao BlogEngine.NET;
+- Incluido suporte ao parametro pubDate na API metaWeblog e o mt_keywords para
+  permitir o uso de tags;
+- Corrigido o tratamento das categorias para a API Metaweblog;
+- Incluido suport UTF-8 para as categorias dos posts;
+- Incluídos novos parametros no CMS.INI para permitir o melhor controle do
+  recursos de cada CMS;
+- Centralizado o tratamento de posts para FillPost em Blogger.bas, evitando
+  a duplicação de código no método GetPost();
+- Realizados testes e ajustes para diversos CMS: Drupal, b2e, Squarespace;
+- Serviço Upsaid agora suporta Texto Extendido e Categorias;
+- Considerar os campos Extended e Excerpt para testar post vazio;
+- Alterado o default de Auto-Conversão de acentos para desligado e UTF8 para
+  ligado na criação da conta;
+- Incluida a opção UTF-8 no Wizard de criação de contas;
+- Link para plugin do Media Player agora aponta para o site do w.bloggar;
+- A versão agora aparece no título de frmPost automaticamente.
+
+*** Release v4.01.0195 *** 21/10/2007 *** 
+- Implementado o suporte a Unicode (UTF-8) nos Blogs, Categorias e Posts;
+- Incluida a opção UTF-8 na janela de propriedades da conta;
+- Corrigido o servidor do Blogger no CMS.ini e alterado para Blogger API 1.0;
+- Incluido o suporte nativo para o Community Server;
+
+*** Release v4.00.0194 *** 08/09/2006 *** (not released)
+- Alterada a rotina de Preview para não considerar a tag CSS quando esta não
+  tiver sido alterada pelo usuario na janela de Propriedades do Blog;
+- Atualizadas as configurações do CMS Drupal;
+- Corrigido o tratamento de leitura do blog para considerar o uso de tags
+  separadoras de conteúdo (definidas pelo CMS) no carregamento de um post;
+
+*** Release v4.00.0193 *** 21/03/2006 *** 
+- Alterada a descrição do Squarespace colocando o segundo s minúsculo em CMS.ini;
+- Incluido o MSN Spaces como um novo serviço em CMS.ini;
+- Incluído um botão para importar as configurações a partir do Wizard de nova conta;
+- Opção de salvar o post agora sugere o título do post, quando houver, como nome do arquivo;
+- Incluído teste para prevenir o carregamento de arquivo wbloggar.chg inválido;
+- Incluída o parametro alt na tag img quando a opção XHTML estive marcada;
+- Centralizada a mensagem de erro em uma rotina que registra os erros no arquivo error.log;
+- Alterado o código para evitar o erro 380 - Invalid Property Value;
+- Corrigida a largura inicial da janela principal para caber a barra de ferramentas em pt;
+
+*** Release v4.00.0191 *** 11/01/2005 *** 
+- Incluída crítica para array com item vazio no método mt.supportedTextFilters;
+- Incluído o DearDiary.Net no cms.ini e no cms.htm;
+- Corrigido problema que ocorria com o TypePad devido à ausência do atributo
+  "isPrimary";
+- Corrigido problema relacionado ao tamanho do ID das categorias do TypePad;
+
+*** Release v4.00.0190 *** 06/01/2005 *** 
+- Corrected a bug that was showing the toolbar with no icons after the 
+  conversion of the settings to xml;
+
+*** Release v4.00.0189 *** 04/01/2005 *** 
+- Alterado o parametro "Título" da tag de imagem de alt para title assim
+  aparecendo igualmente no IE e no Firefox;
+- Corrigido o tratamento de valores inválidos na janela de
+  Opções que abria a tab errada nos erros;
+- Alterado estilo do ComboBox de tamanho da lista de blogs
+  para permitir editar o valor;
+- Alterado o arquivo CMS.htm para permitir a tradução;
+- Eliminados todos os icones do activebar principal, é necessário pelo
+  menos um skin para executar o w.bloggar;
+- Incluída a chamada ao arquivo de help (wbloggar.chm) via ShellExecute;
+- Atualizada a tabela de tradução de labels e mensagens.
+- Incluída uma opção no menu para abrir a janela de opções avançadas de post;
+
+*** Release v4.00.0185 *** 13/12/2004 *** RC3
+- Alterada a referência de XMLRegistry para ActiveXMLReg;
+- Na importação de arquivo de settings apaga o xml de blogs 
+  correspondente à conta ativa;
+
+*** Release v4.00.0183 *** 11/12/2004 *** RC3
+- Atualizados os dados e o icone do CMS Blojsom;
+- Atualizados os dados do Blogger para acessar o serviço via HTTPS;
+- Incluídos os campos Class, VSpace e HSpace na janela de Imagens;
+- Incluída crítica de apenas números nos campos na janela de Imagens;
+- Incluída opção de editar a tag gerada depois do Upload;
+- Alterada a forma de armazenar as configurações de conta e de aplicação
+  para um arquivo xml no lugar de usar o Windows Registry;
+- Implementada rotina de conversão do Registry para XML;
+- A rotina de carregamento de configurações verifica se o skin configurado
+  ainda existe, se não existir configura do default;
+- A lista de skins só mostra as pastas abaixo de Skin que tenha o arquivo
+  skin.ini para evitar erros;
+- O botão Default na janela de propriedades do blog não restaurava a
+  tag de CSS default;
+- Movidas algumas variaveis e rotinas do bas de Spell para a classe clsSpell;
+- Movida a rotina LoadWords para a janela de Progress;
+- Implementadas duas novas opções no menu Arquivo para Exportar e Importar
+  as configurações da aplicação;
+- Todos os links do preview abrem em janelas externas do Browser, dependendo da
+  configuração o w.bloggar abre no IE ou no Browser Padrão.
+- Todos os links da janela Account Wizard para os CMS abrem no Browser Padrão.
+- Implementada variavel de compilação para preparar a versão Mozilla do w.bloggar;
+- Corrigido erro que permitia acessar a aba More usando Ctrl+Tab;
+- Arquivos de Post com Post ID de outros blogs agora podem ser carregados 
+  como Draft se o usuário quiser;
+- Criado o novo menu Exibir;
+- Movidas as opções More Text e Preview para o menu Exibir;
+- Criadas as opções para mostrar e esconder as barras de ferramentas, formatação,
+  HTML e Status no menu Exibir;
+- Criado um botão para a tag de Parágrafo no menu e na barra HTML;
+
+  
+*** Release v4.00.0181 *** 18/11/2004 *** Release Candidate 2
+- Realizados testes com a rotina de autenticação em proxy;
+- Incluido o tooltip no botao Custom Tags;
+- Corrigido o erro que deixava habilitado o botão Salvar quando um novo
+  blog era selecionado e a area de edição era limpa;
+- Corrigido o erro que mantinha marcado o último arquivo aberto no menu
+  Arquivo mesmo após um post ser carregado do blog;
+- Alterado o icone da janela de login para o mesmo da janela principal;
+- Implementado o arquivo ping.ini para controlar os sites de notificação;
+- Incluido o site ping-o-matic no arquivo ping.ini;
+- Na janela Recent Posts o título do post, quando disponível, é apresentado
+  na lista no lugar da Data/Hora;
+- A janela Recent Posts pode ser redimensionada e o tamanho e posição são
+  salvos e utilizados na próxima vez que a janela é aberta;
+- A opção de tags XHTML agora é corretamente salva e restaurada;
+- Implementada rotina para colar texto formatado em RTF para HTML;
+
+*** Release v4.00.0177 *** 11/11/2004 *** Release Candidate
+- Corrigido erro que não permitia a edição de um post MT ou metaWebLog;
+
+*** Release v4.00.0176 *** 10/11/2004 *** Release Candidate
+- Corrigido a rotina de carregamento e salvamento de conta para salvar as
+  tags de More Text das contas do tipo Custom;
+- Corrigido o tratamento de leitura e gravação de contas Custom que não
+  gravava o GetPostsMethod();
+- Movida a inclusão do arquivo aberto na MRU para o método LoadPostFile 
+  de frmPost, centralizando a ação e corrigindo o erro que ignorava os
+  arquivos passados na linha de comando não mostrando na MRU List;
+- Incluida a chamada ao método GetPost() após um novo post no MT quando
+  a opção de Clear Edit Area não estiver ligada.
+- Alterado o método de publicação do post no caso da API do MT, para usar
+  o publishPost() ao invés do editPost();
+- Corrigido o Preview para converter corretamente a quebra de linha quando
+  o post é lido do XML que não vem com vbCrLf só vem com vbLf;
+- Find & Replace agora funcionam nas caixas de texto da aba More;
+- Implementado o código para colorir o código HTML corretamente nos novos
+  campos da aba More;
+- Undo & Redo agora funcionam nas caixas de texto More e Excerpt;
+- Corrigido o erro que não selecionava as categorias de um post em MT quando
+  era selecionada a opção de Editar último Post;
+- Corrigido problema na geração dos arquivos de idioma que não mostrava
+  o checkmark na tool MRU1;
+- Corrigida a rotina LoadPostFile para tratar corretamente os MRU;
+- Incluída nova opção que permite alterar a largura da lista de blogs;
+- Incluída nova opção para selecionar o site de notificação de atualização 
+  do blog, podendo ser agora Weblogs.com, Technorati e blo.gs
+- Corrigido erro que escondia a barra de HTML toda vez que um post era 
+  publicado ou carregado para edição;
+- Corrigido erro que não carregava sempre o arquivo temporário enviado
+  por uma ferramenta de css quando o w.bloggar já estava aberto;
+- Os arquivos iniciados por "~" ou com a extensão ".tmp" são carregados mas
+  não são considerados como arquivo aberto apenas o texto é incluído.
+- Unificada a rotina que verifica se há alterações a serem salvas e agora
+  ela é verificada em todas as opções que forem afetar a area de edição.
+- Agora quando o usuário responda sim quando é perguntado se quer salvar 
+  o post e ele cancele na janela de salvar o post todo o processo é cancelado.
+- A janela de Opções reconhece corretamente o skin configurado no registry
+  mesmo se o w.bloggar for executado de uma pasta diferente da original.
+- Corrigido o post para blogs que usam tags <more> para só enviar as tags
+  se alguma coisa for digitada no campo More;
+- Implementada a possibilidade de um blog que use API do B2 para Categorias
+  ser multi-categorias;
+- Agora o botão de mais categorias só é habilitado se mais de uma categoria
+  existir no blog;
+
+*** Release v4.00.0170 *** 07/07/2004 *** Beta 1
+- Alterado o CMS.INI para usar a API 1.0 no caso de não precisar de título.
+- Corrigido problema que gerava um erro 6 - Overflow quando uma porta acima
+  de 32767 era usada na configuração da conta de blog e FTP;
+- Alterado o ActiveForm.ocx para permitir que o icone do Tray fique sempre
+  fixo mesmo quando a janela está restaurada;
+- Na janela de Propriedades da Conta O checkbox HTTPS agora altera o campo
+  Porta com os valores default (HTTP=80 HTTPS=443) de acordo com a seleção;
+- Alterado o acesso aos arquivos xml, chg, htm e post para fora da pasta
+  da Aplicação para evitar problemas de restrições de acesso à pasta;
+- Criada uma nova aba contendo os campos do MT  More, Excerpt e KeyWords;
+- Alteradas as rotinas de Cut, Copy e Paste para considerarem os novos campos
+  More, Excerpt e KeyWords;
+- Alterada a rotina de SpellChecking para considerar os novos campos
+  More e Excerpt;
+- Implementado o tratamento de menu para incluir os últimos arquivos editados;
+- Incluído o botão para abrir a janela de seleção de múltiplas categorias;
+- Criada a janela para seleção de múltiplas categorias ;
+- Incluída a opção (none) como a primeira da lista de categorias;
+- Alterado o comportamento da opção More Text [F4] para mudar pro tab de
+  campos extendidos em vez de colar os tags especiais;
+- Ajustado o comportamento do menu popup do icone do tray para o caso da
+  janela principal estar aberta;
+- Implementado o combo com icones na tela de Propriedades da Conta e na
+  janela de Login;
+- Incluidos e alterados alguns icones do Skin Windows XP;
+- Alterado o icone de Media para ser recuperado do Skin;
+- Separada a janela frmSettings em duas: uma para configurações da aplicação
+  e outra para propriedades do Blog;
+- Incluido o botão para abrir a nova janela frmBlog e a opção no menu File;
+- Redesenhada a janela de Login para dar mais espaço ao combo de contas;
+- Criada as opções de menu: Help (F1), Lista Ordenada e Lista de Marcadores;
+- Alterado o caption da opção Settings para Options;
+- Movidas as opções "Blog Properties" e "Options" para o menu Tools;
+- Criada a opção "Add Account..." no menu File para abrir o novo Wizard;
+- Implementado código para enviar e receber os campos Excerpt e Keywords no MT;
+- Exugado o código de carregar o post em frmRecent;
+- Alterado o preview para salvar os arquivos htm na pasta de arquivos temporarios
+  e apagá-los quando sair do preview;
+- Criada a janela frmAdvanced para configurar as opções avançadas do Post;
+- Incluído alerta quando o usuário seleciona para iniciar um novo Post e a área
+  de edição foi alterada;
+- Alterado a função GetPost() para aceitar um novo parametro opcional que indica
+  se o Post deve ser aberto na area de edição. Ela agora retorna um objeto PostData;
+- Corrigida a rotina de Salvar e Publicar templates do Blogger para não mais utilizar
+  o método Publish da API 2.0;
+- Implementada a inclusão de Listas HTML Ordenadas e Bullet. Se uma serie de linhas 
+  estiver selecionada cada linha é convertida em um item da lista;
+- Implementada a janela de Wizard para criação de novas contas;
+- Implementado o código para enviar o campo TextFilter via API MT;
+- Implementado o suporte ao Wordpress, SquareSpace, b2evolution, Nucleus 3, UBlog e .Text;
+- Alterado o tratamento de conversao de data ISO para formato Data para o SquareSpace;
+- Alterada a rotina de carregamento de CMS para ignorar o Blogger (No Titles);
+- Implementado o controle de arquivos .post eliminando o conceito de draft único;
+- Implementada a opção de abrir automaticamente o último arquivo de post aberto; 
+- Incluídas duas novas opções Lingua e XHTML;
+- Incluídas as entradas de registry "Table" e "MRU" para o Uninstall remover;
+
+*** Release v3.03.0165 *** 16/12/2003 *** 
+- Atualizada a tabela de conversão de caracteres especiais e símbolos para
+  entidades HTML padrão visando evitar os erros em xml parsers;
+- Alterado o Shortcut de More Text para [F4] pois [F11] já era usado!
+
+*** Release v3.03.0162 *** 08/12/2003 *** 
+- Implementado o tratamento para o array de categorias em posts usando
+  a API metaWeblog;
+- Incluída uma nova opção Preview no menu Tools para deixar explícito
+  o shortcut [F12] para o usuário;
+- Incluída nova opção More Text [F11] no menu Format e no menu de contexto 
+  para facilitar a inclusão da tag especial para texto extendido no MT;
+- Incluídas quatro novas entradas para CMS.INI para configurar tags de
+  MoreText e Body;
+- Alterado o tratamento de MoreText para considerar as novas configurações
+  de tags vindas do CMS.INI;
+- Implementado tratamento à tag <body> para permitir o uso do pMachine;
+- Implementado o tratamento de autoconversao de caracteres especiais para 
+  o campo "More Text";
+
+*** Release v3.02.0160 *** 31/07/2003 *** 
+- Corrigido erro que não apresentava corretamente o CheckBox de Proxy
+  das configurações de FTP na janela frmSettings;
+- Corrigida a rotina SaveAccount que estava salvando o parâmetro 
+  MultiCategory sem converter de booleano para número;
+- Alterada a forma de tratar a passagem de parâmetros entre duas 
+  instancias do executável, pois o DDE não funcionava no XP por
+  alguma incompatibilidade com o recurso .manifest, agora está
+  sendo usada simplesmente a função SendMessage();
+- Incluída a chamada ao método Restore do ActiveForm no evento
+  txtCommand_Change provocado pela comunicação entre instâncias;
+- Criada a função SupportsCategory();
+- Alterada a rotina LoadPostFile() para verificar as funções SupportsTitle()
+  e SupportsCategory() em vez da propriedade visible dos controles;
+
+*** Release v3.02.0158 *** 12/07/2003 *** 
+- Implementado suporte a comunicação DDE para passar o arquivo entre as 
+  instâncias do w.bloggar quando um arquivo é chamado pelo shell e já
+  existe uma instância do w.bloggar sendo executada;
+- Corrigido a rotina de carregar o último post que não carregava o título
+  para blogs que utilizam a Blogger API 2.0;
+- Corrigido o método TemplateMode que estava ligando a propriedade Visible
+  do combobox de categorias sempre verificando o tamanho do Grid erradamente;
+- Alterado o GetPostsMethod do Blogger para 2 no CMS.INI para bypassar o
+  problema da codificação errada na API 1.0;
+  
+*** Release v3.02.0154 *** 23/06/2003 *** 
+- Alterada a opção GetPostsMethod do Blogalia em CMS.INI para metaWeblog API;
+- Alteradas todas as opções *Method do B2 em CMS.INI para API_B2 (5);
+- Alterado o tratamento para pesquisa de Categoria em EditPost de frmPost para
+  verificar o tipo de API em vez do CMS usado;
+- Alterado o tratamento para salvar e ler a Categoria em SaveDraftPost, SaveAs
+  e LoadPost em frmPost para verificar o tipo de API em vez do CMS usado;
+- Criada a função TranslateWinsockError() em basUtilites para utilizar tanto
+  em xmlHttpRequest quanto em clsFTP;
+- Implementadas mais duas propriedades em xmlClass ProxyUsedID e ProxyPassword
+  para permitir autenticação no servidor Proxy;
+- Implementada a rotina de autenticação de Proxy em xmlHttpRequest;
+- Alterada a estrutura de dados Account para tratar a autenticação de Proxy;
+- Alterada a janela frmAccount para incluir os campos User e Password do Proxy;
+- Incluída rotina para GetRecentPosts carregar arquivo debug.xml caso o arquivo
+  exista e a execução não seja do executável;
+
+*** Release v3.02.0152 *** 19/06/2003 *** 
+- Configuradas as teclas [Ctrl+Tab] para alternar entre o Editor e o Preview
+  assim como já fazia a tecla [F12];
+- Implementado a propriedade LastDLLErrorMsg para traduzir o código de Erro
+  na classe clsFTP;
+- Renomeada a rotina SavePost de frmPost para SaveDraftPost e transformada em
+  uma função que retorna um booleano informando o sucesso da operação;
+- Incluído tratamento para que o usuário seja alertado quando o arquivo de
+  "Draft Post" for inválido;
+- Corrigido comportamento errado quando o Draft Post não existia ou era 
+  inválido, o texto "<< New >>" não aparecia nem o foco era setado;
+- Eliminados quase todos os ícones do ActiveBar (menos os das toolbars) para
+  diminuir o exe e o arquivo de tradução;
+- Traduzidas as mensagens de status em basAPI, de SaveDraftPost com erro e
+  o filtro de seleção de arquivos em frmUpload;
+
+*** Release v3.02.0151 *** 15/06/2003 *** v3.02 Beta
+- Otimizada a rotina de post para MT, evitando que a publicaçao seja feita
+  duas vezes em novos posts com categoria;
+- Na janela de Post Recentes quando o author não é retornado agora é 
+  mostrada a data do post no campo abaixo do texto;
+- Incluídas as labels para as expressões "Listening to", "Category",
+  "More Text...", "Back To Main" e o código de tradução em frmPost 
+  e frmSettings
+- Implementada da possibilidade de apagar o campo "Extended Entry"
+- Corrigido o Copyright para 2003;
+- Corrigida a inclusão de uma quebra de linha entre o corpo e o
+  conteúdo do campo "Extended Entry";
+- Links e Imagens com endereço relativo na Media String agora aparecem
+  corretamente no Preview;
+- Implementada a possibilidade de apagar um Custom Tag deixando em 
+  branco todos os campos;
+- Corrigida a posição do cursor no Undo;
+- Alterada a rotina SaveCombo para permitir passar um parâmetro 
+  indicando a partir de que item o combo deve ser salvo;
+- Incluída a versão em uso do w.bloggar no registry para facilitar 
+  os futuros upgrades;
+- Alteradas as funções de basAPI Post(), GetPost(), GetRecentPosts() e
+  SupportsTitle() para a implementação parcial da Blogger API 2.0;
+- Alterada a rotina GetPost() em basAPI para receber o PostID como um
+  parametro opcional;
+- Renomeados os parametros Boolean das rotinas em basAPI para incluir 
+  o prefixo bol mantendo assim o padrão de nomes;
+- Criada a função Publish() em basAPI;
+- Alterada a função SaveTemplate() para usar a nova função Publish();
+
+*** Release v3.01.0150 *** 21/04/2003 *** v3.01 
+- Incluídas novas Custom Tags de Ctrl+F9 a Ctrl+F12;
+- Na janela de incluir link o combo de URL agora tem como duas primeiras
+  opções as strings "http://" e "mailto:";
+- Agora o w.bloggar seleciona automaticamente o último blog utilizado
+  por cada conta cadastrada após o login;
+- Atualizado o ActiveBar com as strings para tradução;
+
+*** Release v3.01.0148 *** 14/04/2003 *** v3.01 RC2
+- Alterado o comportamento do clique no ícone de música na barra de
+  status, agora ele fica sempre habilitado e quando o ícone está em
+  tons de cinza e é clicado aciona a janela de configurações na guia
+  de configurações do Media Player plug-in;
+- Corrigido o código de postagem que após a inclusão do Media String
+  estava descolorindo o código;
+- Incluido tratamento do flag de conversão de CRLF na inclusão de
+  tabelas HTML;
+- Substituida a crítica de apresentação do campo título no método
+  TemplateMode para considerar a função SupportsTitle() e não mais 
+  apenas a constante CMS_BLOGGER;
+- Alterado o escopo do método OpenWebPage de frmPost para Public;
+- Corrigido o problema que mostrava erradamente o ícone do CMS no menu;
+- Alterada a URL do blog do autor;
+- Implementada a leitura do campo de texto extendido do MovableType na
+  janela frmRecent e no método GetPost();
+- Alterada a rotina PreviewPost() para considerar as tags especiais
+  <more_text></more_text> e apresentar o post corretamente;
+- Alteradas os eventos acbMain_ToolClick em frmPost e cmdButton_Click
+  em frmMultiPost bem como a função Post, para considerarem o campo
+  do MovableType More Text;
+- Alterada a rotina GetBody() e criada a rotina GetMore();
+
+*** Release v3.01.0147 *** 05/04/2003 *** v3.01 RC
+- Implementada a função MediaPlayerMusic() para retornar as informações
+  relativas à música atualmente em execução no Windows Media Player;
+- Criado mais um painel na barra de status com o ícone do Media Player
+  que será habilitado sempre que uma música ou vídeo estiver tocando e
+  o nome e o autor da música aparecerá no Tootip e tem [F11] como tecla
+  de atalho para incluir os dados da música no corpo do post;
+- Incluído teste para desativar o timer quando a janela principal estiver
+  minimizada eliminando o consumo desnecessário de recursos;
+- Criada nova guia de Media na janela de configurações para permitir o
+  usuário configurar a forma que quer as informações de mídia nos posts;
+- Se o usuário abrir a janela de configurações no modo preview ao fechá-la
+  é executado um refresh na visualização para refletir eventuais alterações;
+- Implementada a inclusão automatica das informações do Media Player no
+  Preview e nos Novos Posts;
+
+*** Release v3.01.0145 *** 28/03/2003 *** v3.01 Beta
+- Incluídas críticas na rotina ParseValue para evitar que ocorra um erro
+  "91 - Object Variable or Width Block Variable Not Set", quando um dos
+  parametros do XML vem vazio;
+- Incluído autoselect nos textboxes numericos da janela de Inserir Imagem;
+- Incluído o parâmetro alt na tag <img src=> inserida pelo Upload;
+- Agora ambos os campos Título e Categoria são aumentados ou diminuidos
+  proporcionalmente quando é alterado o tamanho da janela principal e não
+  apenas o campo Título;
+- Implementada opção na guia Preview da janela de Configurações para permitir
+  que o usuário desahabilite a autocoversão dos Enter pela tag <BR>;
+- Melhorada a rotina de Preview para converter os endereços relativos à raiz
+  do servidor quando o blog está hospedado em uma sub-pasta;
+- Incluído o campo para configuração de um CSS para o Preview;
+- Incluída a opção para abrir as Páginas Web no Browser Padrão ;
+- Configurados os checkboxes das janelas de Configurações e Link para ficarem
+  de acordo com o padrão Flat e não 3D;
+- Incluídos mais seis símbolos na tabela de conversão de caracteres especiais;
+- Configurada F12 como a tecla de atalho para o Preview;
+
+*** Release v3.00.0139 *** 17/11/2002 *** v3.00 Final
+- Incluído tratamento de erro com Debug.Print nas rotinas de tradução de form;
+- Preparada a aplicação para ser traduzida;
+- Incluída crítica para linkar o site em português quando LCID = 1046;
+- Alterada a rotina SaveAs para também salvar o título e a categoria;
+- Alteradas as rotinas OpenText e LoadDraftPost para chamarem LoadPostFile 
+  evitando assim a redundância de código;
+- Alterado os valores default para largura e altura da janela para mostrar
+  totalmente as barras de ferramentas em português;
+- Na janela About o botão Informações agora mostra os Locale ID's do Windows 
+  e do w.bloggar;
+
+*** Release v3.00.0134 *** 07/11/2002 *** English Only
+- Corrigido problema que não habilitava na inicialização o SpellCheck
+  quando a lingua padrão não era inglês;
+- Corrigida a instalação para incluir os arquivos de WhatsNew e License;
+- Corrigido erro que deixava desabilitado o botão Post&Publish quando o  
+  usuário estava editando o template e mudava para um blog no Blogger.com
+- Corrigido erro que limpava do draft post sempre que iniciava o programa;
+
+*** Release v3.00.0132 *** 02/11/2002 *** English Only
+- Corrigido o TabOrder da janela de Posts Recentes;
+- O botões que incluem Tags agora funcionam também no textbox de título;
+- Alterado o foco do cursor para o título (quando visivel) sempre que o
+  usuario mudar de conta ou blog;
+- Alterado no texto de alerta na janela Settings a palavra Warning por
+  Note;
+- Alterada a estrutura do corretor ortográfico para usar o LocaleID como
+  o nome do dicionario e não o nome da pasta, para facilitar o deploy;
+- Alterada a rotina LoadSkin para considerar IsXPLook ligado como default;
+- Corrigido erro na rotina de Uninstall quando não haviam blogs no Registry;
+- Eliminado o MsgBox da rotina de Uninstall;
+- Incluído tratamento de erro na rotina Associate;
+- Movida a chamada de InitCommonControls() de frmPost para a Sub Main();
+- Novo Setup usando o Ghost Installer 3.3;
+
+
+*** Release v3.00.0127 *** 18/10/2002 *** 3.0 Interim Release
+- Alterado o método Post() na classe xmlClient para não gerar um erro VB quando
+  a resposta do HTTP for uma string não-XML, passando o erro para o parser;
+- Implementado o botão Save & Publish para salvar e publicar o template em blogs
+  do Blogger (corrigida a chamada que não existia na release anterior);
+- Alterada a função Post() para receber o parâmetro PostID e nao usar gPostID 
+  permitindo o seu uso dentro da funçao SaveTemplate()
+- Incluída rotina para limpar o draft post e evitar a situaçao de um post salvo
+  ser aberto na entrada do w.bloggar em um blog errado;
+
+*** Release v3.00.0126 *** 07/10/2002 *** 3.0 Release Candidate
+- Implementado o suporte para XP Manifest para usar as skins do Windows XP
+- Incluidas duas opções no menu Help, um link para o FAQ e um para doacões;
+- Alterado o Default do ActiveBar para XPlook = True;
+- Incluído o campo Text na janela frmLink para permitir a digitação do texto
+  do link dentro da janela
+- Alterada a rotina InsertTag em frmPost para verificar se a tag tá vazia, se
+  esiver preenchida passa o cursor para o final da tag;
+- Incluída a opção de configurar a largura do post no Preview;
+- Corrigida a rotina LoadDraftPost que incluía uma linha em branco quando o
+  post não era de um blog que não tinha título;
+- Corrigido o tratamento de Undo que descoloria o código em algumas situações;
+- Corrigida a rotina de salvamento de post para não salvar o título quando
+  o textbox estiver vazio;
+- Corrigida a função TemplateMode para não tornar visível o textbox de título
+  quando o CMS for o Blogger;
+- Corrigida a rotina Post() em basAPI para publicar após a configuração das
+  categorias em um blog do MovableType;
+- O foco vai para o campo título quando um novo post é iniciado quando o blog 
+  aceita este campo;
+- Implementada a rotina que inclui as dimensões da imagem na tag HTML após a 
+  transferencia do arquivo via FTP;
+- Incluído tratamento para o caso de não existirem Skins e/ou Dicionários;
+- O foco agora fica no título (quando disponível) após a alteração de conta;
+- Incluída a opção de usar o proxy configurado no IE na janela Account, e 
+  ajustadas as classes xmlClient, xmlHttpRequest  e clsFTP;
+- Corrigida a rotina de criticas na janela Account para mudar o Tab antes de
+  setar o foco para os campos;
+- Incluído o botão para inserir a tag Blockquote que pode ser acionado com Ctrl+J;
+- Corrigido o comportamento que alinhava à direita o texto em txtPost quando 
+  o usuário pressionava Ctrl+R e não havia nada na coleção de "ReDo";
+- Incluido alerta quando o usuário clica para abrir um template caso ele tenha
+  criado/alterado alguma coisa na edição em andamento;
+- Incluido tratamento para a tecla Tab na edição, e uma opção na janela de con-
+  figurações para setar quantos espaços ela vai gerar;
+- Incluídos paineis como containers para evitar o bug do skin XP com os frames
+  do VB, foram alteradas as janelas frmSettings, frmAccount e frmFind;
+- O campo título agora aparece (ou não) de acordo com as configurações de
+  métodos suportados e não mais se o CMS é o Blogger;
+- As barras de ferramentas agora podem ser movidas para a parte de baixo da
+  janela principal, a barra de HTML também pode flutuar e ser anexada nos 
+  lados;
+- Agora o w.bloggar salva as configurações de usuário das barras de ferramentas;
+- Na janela de incluir imagem agora é possível configurar a largura da borda;
+- Incluída nova guia na janela frmSettings para configuração das opções dos
+  arquivos de post;
+- Incluída possibilidade de associar o w.bloggar aos arquivos de extensao .post;
+- Implementada uma forma de configurar o arquivo que guarda o post rascunho;
+- Implementado o Post Default para permitir uma configuração padrão de post;
+- Criada opção de desinstalar as entradas de registry através do parâmetro de
+  linha de comando "-uninstall";
+- Implementado o botão Save & Publish para salvar e publicar o template em blogs
+  do Blogger;
+- Alterado o nome do arquivo onde o post rascunho é salvo de post.txt para draft.post;
+
+*** Release v3.00.0104 *** 02/09/2002 *** 3.0 Beta
+- Corrigida a rotina de upgrade que não estava usando as constantes CMS;
+- Incluido o XOOPS na rotina de upgrade;
+- Alterado o Default do parâmetro AutoConvert para True;
+- Corrigida a janela Settings para alterar corretamente a fonte do Editor;
+- Movidos o botão "Reload Blog List" e o checkbox "Ping Weblogs" da janela
+  de Settings para a de Account Properties;
+- Incluída a guia Custom para permitir a configuração de Metodos de API
+  para as contas do tipo "Custom Tool";
+- Renomeado o frmConnection para frmAccount;
+- Alterada a pasta padrão dos dicionários para "Spell" abaixo de App.path;
+- Incluída a opção de formatar o título no preview na janela frmSettings;
+- Implementada a rotina para evitar várias instancias do programa;
+- Implementada na janela frmSettings a lista de Dicionários;
+- As categorias do blog atual agora são salvas no arquivo categs.xml e
+  recarregadas automaticamente quando o w.bloggar é iniciado
+- Quando o título ou a categoria são alterados o flag de alteração é ligado;
+- Implementado o frmUpload que permite o Upload de imagens e arquivos;
+- Incluído a tecla F10 como shortcut para a janela frmAccount;
+- Implementado o menu de configuração das Custom Tags com o frmCustom para
+  configurar e editar as tags;
+- Corrigida a situação que o usuário salvava as configurações de uma conta e
+  mesmo dando Cancel na janela de Login ficava no registry como a conta default;
+- Incluído o ShortCut [Shift+Ins] no miPaste para evitar que o usuário cole
+  texto formatado diretamente no editor;
+- Alterado o teste na rotina Main para chamar a janela de login quando o
+  parametro SavePassword for Falso e não quando a Password estiver vazia;
+- Simplificada a rotina de login usando o LoadBlogs() para validar o usuário,
+  isso vai fazer com que toda vez que for alternado a conta serão recarrega-
+  dos os blogs automaticamente;
+- Eliminada a função ValidUser() por não ser mais necessária;
+- Eliminados os atributos ID e Name dos dados da Conta;
+- Alterado o bitmap do AboutBox;
+- A função NewPost agora muda o Tab para o Editor;
+- Alterada a funcionalidade do botão System Info no AboutBox para chamar
+  um messagebox informando as versões do Windows, IE e do XML parser;
+- Incluída verificação da versão do IE no Sub Main;
+- Incluída verificação da versão do Windows para evitar alterar o ícone
+  para 16 cores no XP;
+- Implementado o suporte a multicategorias do MovableType, permitindo que
+  o usuário altere a categoria principal sem alterar as secundárias;
+
+*** Release v3.00.0100 *** 11/08/2002 *** 3.0 Alpha
+- Incluídos os campos de Título e Categoria e o tratamento de show/hide
+  na rotina TemplateMode;
+- Atualizada a tabela de conversão de caracteres especiais em entidades HTML;
+- Iniciada a implementação do Corretor Ortográfico: criado botão e opção do
+  menu e testes usando o código do vbwSpellCheck;
+- Alterada a rotina de parsing do retorno dos métodos para eliminar possíveis 
+  "lixos" que venham antes do xml retornado;
+- Substituido o ActiveBar 1.0 pelo 2.0 e renomeado o arquivo do frmPost para
+  ficar de acordo com o padrão;
+- Eliminado o controle StatusBar, pois o AB2 substitui com vantagens;
+- Incluído o botão Font Color na barra bndFormat com um subBand com as cores
+  básicas e uma opção de chamar o CommonDialog das cores para formatar a cor
+  da fonte;
+- Incluídos os campos Alias, CMS, BloggerAPI e WeblogAPI na definição Type das
+  contas do usuário para permitir o novo controle de contas;
+- Renomeadas as funções OpenBlogToolPage() para OpenCMSPage() e BlogPost() para
+  Post();
+- Movidas as funções relacionadas com a API para o novo módulo basAPI;
+- Criado o arquivo CMS.ini contendo as configurações dos CMS suportados pelo
+  w.bloggar e incluidas as funcoes para acesso a arquivos INI;
+- Iniciada a alteração da janela frmConnection para contemplar a lista de
+  CMS e o Alias das contas;
+- Alterada a janela de Login para apresentar o Alias das contas no combo;
+- Agora no StatusBar aparece o icone e o nome da conta e não mais o usuário;
+- Voltada atrás a alteração do parametro OPEN_TYPE da função da API do Windows 
+  InternetOpen para INTERNET_OPEN_TYPE_DIRECT na classe xmlHTTPRequest;
+- Incluida a função ConvertHTMLEntities() para converter a acentuaçao e os
+  caracteres especiais automaticamente no post e no get;
+- Comentado o código que ligava a conversão de acentuação na digitação;
+- Criada a função GetXMLClient() para enxugar as funções de basAPI;
+- Incluído o parametro Silent na função DeletePost();
+- Implementado o tratamento correto do parametro Silent em Post();
+- Implementado o suporte às teclas de atalho do Blogger.com no ActiveBar2;
+- Movido o código de acesso à API de frmRecent para o basAPI;
+- Alterado o tratamento de erros retornados pelo servidor de API para que
+  sejam tratados na função ParseFault e uma mensagem de alerta que o erro
+  foi gerado no servidor foi incluída;
+- Alterado o nome da função PutBinaryFile() para SaveBinaryFile();
+- Incluído o salvamento do arquivo lasterror.xml também no caso de erro 
+  de parsing no método Post() de xmlClient;
+- Corrigida a rotina de SpellCheck para ignorar corretamente as tags HTML;
+- Alterada a rotina de SpellCheck para usar o form do textbox como Owner
+  do frmCheck em vez de colocar ele como TopMost;
+- Implementado o tratamento de skins para alterar a aparencia do ActiveBar
+  e os ícones dos menus e barras de ferramentas;
+- Alterado o controle de Tab para o SizerOne da ComponentOne;
+- Alterado o botão de Cor de frmFont para carregar o bitmap do ActiveBar;
+- Criado um novo menu PopUp para funcionar como menu de Contexto;
+- Alterada a janela frmLogin para permitir a exclusão de contas através da
+  nova função DeleteAccount() em basBloggar;
+- Alterada a janela frmLogin para carregar a imagem e os icones do skin;
+- Os campos Titulo e Categoria agora são corretamente escondidos durante
+  a edição de Template;
+- O campo Categoria não aparece caso o blog não suporte esta característica;
+- Incluídos os parâmetros Titulo e Categorias na função Post;
+- Corrigido o método ParseFault em xmlClient para tratar quando o código do
+  erro é retornado como uma string;
+- Incluída a função IsArrayEmpty() em basBloggar;
+- Só habilita o botão Template qdo o CMS permitir;
+- Alterado o método EditPost de frmPost para receber o Título e as Categorias;
+- Alterado o form frmRecent para receber o título e as Categorias;
+- Criada a função GetPostCategories() para o suporte ao MovableType;
+- Criada a função SetPostCategories() para o suporte ao MovableType;
+- Implementada a possibilidade de deletar posts na janela frmRecent;
+- Alteradas as rotinas de salvamento e carregamento do Draft Post para salvar
+  também o título e a categoria quando for o caso;
+
+*** Release v2.03.0086 *** 21/05/2002 ***
+- Corrigido o erro que emitia um msgbox perguntando se queria salvar
+  a área de edição após um login cancelado;
+- Incluída crítica para verificar a versão do parser para eliminar ou
+  não o parâmetro encoding do XML retornado;
+- Alterada a rotina de Preview para mostrar corretamente as imagens
+  no preview de template;
+- Criada a rotina Path2URL para converter caminhos relativos em 
+  urls completas.
+- Implementada a conversão Path2URL das figuras de background;
+- Implementada a conversão Path2URL dos links relativos;
+- Alterada a URL do site do w.bloggar no About, Login e Menu;
+- Aumentada a largura da janela Settings para adequar à tradução;
+- Aumentada a largura da janela Conection para adequar à tradução;
+- Permitida a tradução de "Timeout" e "seconds" na janela Conection;
+- O undo funciona na área de edição após um Ctrl+N;
+
+*** Release v2.02.0080 *** 01/05/2002 ***
+- Eliminada a conversão de aspas em &quot; para permitir a digitação de
+  parametros quando a conversão de caracteres especiais estiver ligada;
+- Atualizado o ActiveBar com a nova mensagem para tradução;
+- Corrigido o Tab Order do frmSettings;
+
+*** Release v2.02.0078 *** 22/04/2002 ***
+- Alterada a janela Recent Posts para guardar os PostIDs em um array
+  e não no ItemData do listbox;
+- Alterado o método BlogPost para permitir gPostID não nunérico;
+- Alterado o método BlogPost para tratar corretamente o retorno bool;
+- Alterado o método LoadDraftPost de frmPost para permitir gPostID 
+  não nunérico;
+- Alterado o método GetPost para permitir gPostID não nunérico;
+- Substituida em todo o código a função IsNumeric para verificar 
+  se o gPostID não era um Template;
+- Eliminado o evento Form_Activate de frmLink para permitir o paste
+  rápido de url's quando o usuário abre a janela;
+- Substituido o literal "Account" na janela login pelo GetLbl(lblAccount)
+  traduzindo assim o nome default das contas;
+- Criada a rotina SaveCombo() para unificar o código de salvamento dos
+  itens de ComboBox e implementar a passagem do último item utilizado
+  para o primeiro da lista. Alterados os forms de Link, Image e Font;
+- Alterada a propriedade Entities do controle HTMLEdit para tratar de
+  forma geral a conversão de símbolos e letras acentuadas, e a tabela
+  de letras foi completada;
+- Incluído um checkbox na janela Settings para permitir a configuração
+  da propriedade Entities;
+- Incluido suporte a passagem de um arquivo como parâmetro na linha de
+  comando, permitindo com isso o registro de uma extensão própria;
+
+*** Release v2.01.0065 *** 08/04/2002 ***
+- Contornado o erro retornado pelo método getUserInfo() que fazia com
+  que vários usuários Blogger.com não consiguissem usar o w.bloggar;
+- Corrigido o erro de falta de tradução do título da janela Find;
+- Incluída a mensagem para solicitar a qtd de posts para tradução;
+- Corrigido o TabOrder das janelas Settings, Link e Connection;
+
+*** Release v2.00.0063 *** 29/03/2002 ***
+- Alteradas as rotinas Main() e CheckUpgrade() para agilizar a primeira
+  inicialização;
+- Alterada frmLogin para evitar salvar dados de conta sem validação;
+- Comentado o código relativo ao uso de skin;
+- Eliminada a duplicação da definição da função da API SendMessage;
+- Todas as opções que abrem uma URL agora são mostradas em uma nova
+  janela do Internet Explorer;
+- Agora os arquivos texto da Licença e das Novidades são mostrados 
+  no Internet Explorer;
+- Descomentado o código que permitia o uso dos flags na janela de pesquisa
+  de texto;
+- Todas as mensagens e labels cadastradas para tradução, e forms ajustados
+  para apresentar espaço suficiente para linguas com palavras maiores;
+- Incluida rotina para concatenar reticências na opção Settings do menu File;
+
+*** Release v2.00.0059 *** 27/03/2002 *** RC1
+- Incluídas as reticências no caption da opção Post to Many Blogs;
+- Incluido comando para limpar barra de status no caso de erro no 
+  botão Post;
+- Agora ao clicar no botão Template com o Tab de Preview selecionado o
+  Tab volta para o Editor;
+- Alterado o código que elimina da tag <?xml?> retornada, a informação
+  relacionada com o parametro 'enconding' que dá erro com o parser;
+- Incluídos labels na janela AboutBox para creditar os tradutores;
+
+*** Release v2.00.0058 *** 19/03/2002 *** Beta 2
+- Corrigido Erro no SetFocus que ocorria com novos usuários;
+
+*** Release v2.00.0057 *** 19/03/2002 *** Beta 2
+- Corrigido o comportamento de autoselect no textbox de usuário da janela
+  de login que selecionava baseado no tamanho da senha;
+- Quando uma conta sem senha é selecionada na janela de login o foco é 
+  passado para o textbox da senha;
+- StatusBar agora é limpo quando o usuário clica em "New Post" ou seleciona
+  um outro blog no combobox da barra de ferramentas;
+- Alterado o código interno do controle StatusBar para não tratar o 
+  caractere & como indicador de HotKey para sublinhar letras;
+- Alteradas as mensagens que usavam o & duplo para evitar o problema 
+  corrigido acima;
+- Implementada a rotina para 'pingar' o site Weblogs.Com quando um novo
+  post é publicado;
+- Alterada a janela de Settings para permitir a configuração da opção de
+  ligar e desligar o ping a Weblogs.Com por cada conta;
+- Incluido tratamento de erro na janela frmLogin;
+- Melhorado o tratamento de erro da função HttpSendRequest;
+
+*** Release v2.00.0053 *** 11/03/2002 *** Beta 1
+- Pequena correção de um erro que ocorria quando o usuário mudava de conta
+  com o tab de preview selecionado;
+- Incluido tratamento de erro nas rotinas Main e barMain_Click;
+
+*** Release v2.00.0052 *** 10/03/2002 *** Beta 1
+- Melhorado o tratamento do retorno da data no getPosts(), reconhecendo 
+  quando a data vem no formato string;
+- Adicionado o botão Restore Blogger Settings na janela frmConnection;
+- Corrigida a rotina de Preview do Post para apresentar corretamente as
+  imagens onde a url está sem aspas após o src=;
+- Alterada a rotina Clear Preview, para usar a url "about:blank" em vez
+  de criar um arquivo .htm em branco;
+- Alterada a hotkey da opção Format Font de F4 para Ctrl+Y;
+- Dados do preview de blog's fora do Blogger.com são salvos agora com
+  o codigo da conta como diferenciador;
+- Alterada a janela de seleção de conta para permitir configurar as 
+  opções de conexão e várias contas com um mesmo nome de usuário.
+- Incluídas as opções License Agreement e What's New no menu Help;
+
+*** Release v2.00.0048 *** 18/02/2002 *** Alpha Test
+- Substituido o controle TextBox por um RichText que permite colorir 
+  a sintaxe HTML, facilitando a visualização na edição do post;
+- Implementado controle de múltiplos Undo's com possibilidade de Redo;
+- Alterado o tratamento de Cut, Copy & Paste para utilizar a propriedade
+  SelText e o objeto Clipboard;
+- Incluída a opção de Salvar ou não a Senha permitindo o uso do software
+  em um ambiente compartilhado sem falha de segurança, a senha é solicitada
+  toda vez que o programa é executado caso a opção de Salvar esteja desmarcada;
+- Incluido no Bloggar o código fonte do ActiveStatus para permitir tratar 
+  corretamente o estado do modo de Inserção/Substituição na barra de status;
+- Separadas as configurações de usuário em duas janelas, uma para dados e opções 
+  de usuário e outra para as configurações de conexão com o sevidor da API e 
+  opcionalmente com um servidor proxy;
+- Implementado o suporte ao acesso via servidor Proxy;
+- Incluidos três novos botões de formatação: Font, Color e Insert Table;
+- Incluída a opção de mudar a Fonte da área de edição;
+- Incluído controle que só habilita o acesso aos Templates caso o usuário 
+  seja Administrador do Blog selecionado (nova API);
+- Na janela de seleção de Posts agora aparece o nome do usuário que foi o
+  autor do post (nova API);
+- Transferidas todas as rotinas que usam o código de acesso xml-rpc de 
+  frmPost para o basBloggar;
+- Transferidas as informações sobre o que está em edição, de um Painel na
+  barra de status para uma área em destaque acima do HtmlTextBox;
+- Implementada a rotina de Find/Replace de texto;
+- Corrigida a chamada à página do Bloggar no menu Help que não funcionava;
+- Passada a propriedade hwndParent para os CommonDialogs tornando-os modal;
+- Incluída a opção Minimize on Start;
+- A opção Open Blogger agora abre diretamente a página de edição do Blog
+  atualmente selecionado no site do Blogger;
+- Criadas as propriedades Message e User no frmPost;
+- Implementada a propriedade Picture no StatusBar para permitir o uso de uma
+  imagem como Skin da aplicação;
+- Implementada a opção de requisitar um número qualquer de posts;
+- Implementada a opção Repeat Last Tag;
+- Implementada a opção de post para vários blogs;
+- Implementdo o tratamento das Hotkeys do Blogger/blogBuddy;
+- Incluída a opção de configurar o TimeOut da conexão de cada conta;
+- Incluída uma opção para carregar o último post diretamente sem abrir a
+  janela de seleção;
+- Último blog usado agora é salvo por cada conta de usuário;
+- Incluído tratamento para o caso do blog estar vazio (sem posts);
+- Implementada a possibilidade de Drag and Drop de texto de e para o Editor;
+- Implementados o menu e a barra de ferramentas com as tags HTML;
+- O menu Tools agora mostra o link para a ferramenta de blog de acordo 
+  com as configurações de conexão;
+- DoubleClick em um post na janela frmRecent abre o post sem precisar 
+  clicar no botão OK;
+- Criado o botão/opção do menu Format Strike;
+
+- Pro: Incluído o Preview de Posts no frmPost;
+- Pro: Implementada a possibilidade de utilizar várias contas de usuário;
+- Pro: Incluída a possibilidade de configurar a formatação HTML do Preview
+       por cada Blog das diversas contas de usuário;
+
+*** Release v1.20.0019 *** 04/01/2002 *** Version 1.20
+- Corrigido erro de Overflow que ocorria quando o usuário tentava salvar um
+  template muito grande, foram substituídas as chamadas à função StringReplace()
+  pela função nativa do VB Replace();
+- Após a edição de um Template, com a opção "Clear After Post" desmarcada, se
+  o usuário reiniciasse o Bloggar ficaria com o botão "Post & Publish" 
+  habilitado, esse comportamento foi corrigido;
+- Alterado o ícone do Bloggar;
+- A largura mínima da janela principal foi ligeiramente aumentada para evitar
+  que o botão "Post & Publish" desapareça na versão Português-Brasil;
+
+*** Release v1.10.0018 *** 03/01/2002 *** Version 1.10
+- Alterado o acesso à propriedade .FontSize por .Font.Size;
+- Otimizada rotina de inclusão de tags InsertTag() (antiga FormatPost) para 
+  alterar somente o ponto do texto selecionado através da propriedade 
+  SelectedText sem a necessidade de recarregar todo o texto com a inclusão;
+- Alterado o parâmetro AccessType da API InternetOpen para reconhecer as
+  configurações de Proxy configuradas no Registry do Windows pelo IE;
+- Alterado o acesso aos itens do objeto Struct, que antes era realizado pela
+  ordem dos campos, agora é através do nome do campo, evitando erros com
+  a inclusão de novos campos de retorno;
+
+*** Release v1.00.0016 *** 25/12/2001 *** Version 1.00
+- Incluídos os campos Width e Height na janela Insert Image;
+- Corrigido o problema que traduzia códigos HTML como &gt; para o seu 
+  correspondente ASCII quando um post era selecionado para alteração;
+- Incluido código para ajustar a janela principal ao tamanho mínimo definido
+  nas propriedades MinWidth e MinHeight do ActiveForm caso estejam menores;
+- Incluída lista de opções para o comando Target na janela Insert Link;
+- Na edição de Templates agora o botão aparece como Save e não como Post;
+- Corrigido erro que mudava erradamente o label da barra de status depois
+  de Salvar um Template;
+- Incluída crítica para evitar um post em branco;
+- Incluído alerta na janela Settings para que os usuários do Blogger 
+  não alterem os dados de conexão com o servidor da API;
+
+*** Release v1.00.0015 *** 20/12/2001 *** Release Candidate 1
+- Preparada a infra-estrutura para a tradução do aplicativo, para traduzir basta
+  copiar o arquivo bloggar.tb correspondente ao idioma para a pasta do bloggar;
+- Quando o usuário muda de Blog e existe um post ou template em edição a área é
+  limpa para evitar o post no Blog errado;
+- O botão Reload Blogs List na janela Settings agora é desabilitado caso o usuário
+  altere o usuário e/ou a senha, só podendo ser usado após a confirmação dos dados;
+- O janela Recent Posts foi corrigida para não abrir em branco quando ocorre um erro
+  de conexão ou de restrição de acesso;
+- Eliminada a classe ShellExecute, substituida pela chamada da função da Windows API;
+
+*** Release v1.00.0012 *** 18/12/2001 *** Beta 3
+- Eliminada a ocorrência do erro 5 [Invalid procedure call or argument] que
+  era gerado sempre que algum erro de http acontecia, agora os erros são
+  corretamente apresentados;
+- Incluídas duas novas opções no menu Tools: Delete Post e Delete & Publish;
+- Corrigidas as hotkeys Ctrl+O, Ctrl+P e Ctrl+T que estavam ainda com erro 
+  no tratamento de KeyDown/KeyPress;
+- Transformados em Private métodos do frmPost que estava desnecessariamente
+  configurados como Public;
+- Corrigido o comportamento do frmAbout quando aberto com o aplicativo 
+  minimizado no Tray;
+- Prevista a possibilidade do arquivo XML Cache do Blogs List ter sido apagado;
+- Alterado o ícone para evitar problemas de Copyright com o Blogger;
+- Nova opção no menu tools para abrir a página do Blogger;
+- Configurado um tempo de timeout para 30 segundos nas chamadas http para evitar
+  o travamento durante os momentos que o Blogger estiver muito lento;
+
+*** Release v1.00.0006 *** 17/12/2001 *** Beta 2
+- Corrigido o problema da duplicação no Copy-Paste e no Undo;
+- Incluída rotina que cria o arquivo lasterror.xml quando ocorre um erro na
+  interpretação do retorno dos métodos do Blogger API;
+- Incluído o comando DoEvents no loop de recebimento de dados de retorno;
+- Incluídos os campos Port e HTTPS na janela Settings;
+- Incluída a possibilidade de configurar o tamanho da fonte da área de edição;
+- Incluído o botão Reload Blogs List para recarregar a lista de blogs do usuário;
+
+*** Release v1.00.0005 *** 16/12/2001 *** Beta 1
+- Corrigido erro na janela Settings que fechava a janela no clique do botão
+  OK mesmo que uma crítica de digitação fosse apresentada;
+- Incluído o tratamento de Enable/Disable para a opção Select All do meu Edit;
+- Ajustados caption, tooltip e hotkey de alguns ítens do menu e barra de ferramentas;
+- Incluídos novos paineis na barra de status indicando o ID do post ou template, 
+  usuário logado, status das teclas CAPS LOCK e NUM LOCK e a data atual;
+- Implementada rotina de edição de post especificado pelo Post ID;
+- Implementada opção na janela Settings para configurar se a área de edição deve
+  ou não ser limpa depois de postado o texto;
+- Implementada a possibidade de alterar os Templates na área de edição;
+- Criada a janela Recent Posts para permitir a seleção de Posts para edição;
+- Implementado o tratamento das respostas <fault> do Blogger API no código de XML-RPC;
+
+*** Release v1.00.0002 *** 14/12/2001 *** Alpha
+- Release Alpha Test do software

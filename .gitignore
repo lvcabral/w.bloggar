@@ -1,0 +1,11 @@
+*.vbw
+*.csi
+*.exp
+*.lib
+*.lvw
+*.dca
+*.scc
+*.tmp
+*.oca
+thumbs.db
+
