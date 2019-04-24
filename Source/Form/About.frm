@@ -65,7 +65,7 @@ Begin VB.Form frmAbout
    Begin VB.Label lblLink 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "Marcelo Leal Limaverde Cabral"
+      Caption         =   "Marcelo Lv Cabral"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -81,7 +81,7 @@ Begin VB.Form frmAbout
       Left            =   180
       MousePointer    =   99  'Custom
       TabIndex        =   13
-      ToolTipText     =   "http://wbloggar.com/marcelo/blog/"
+      ToolTipText     =   "https://lvcabral.com"
       Top             =   3570
       Width           =   3975
    End
@@ -98,7 +98,7 @@ Begin VB.Form frmAbout
    Begin VB.Label lblBrazil 
       Alignment       =   2  'Center
       BackStyle       =   0  'Transparent
-      Caption         =   "This Software is Made in Brazil"
+      Caption         =   "This Software was Made in Brazil"
       Height          =   240
       Left            =   180
       TabIndex        =   11
@@ -138,7 +138,7 @@ Begin VB.Form frmAbout
    Begin VB.Label lblLink 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "marcelo@wbloggar.com"
+      Caption         =   "marcelo@lvcabral.com"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -155,12 +155,12 @@ Begin VB.Form frmAbout
       MousePointer    =   99  'Custom
       TabIndex        =   10
       Top             =   2310
-      Width           =   2025
+      Width           =   1920
    End
    Begin VB.Label lblLink 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "http://wbloggar.com"
+      Caption         =   "https://github.com/lvcabral/w.bloggar"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -177,7 +177,7 @@ Begin VB.Form frmAbout
       MousePointer    =   99  'Custom
       TabIndex        =   8
       Top             =   2025
-      Width           =   1770
+      Width           =   3300
    End
    Begin VB.Line Line1 
       BorderColor     =   &H00808080&
@@ -282,19 +282,18 @@ Private Sub Form_Load()
     lblVer.Caption = GetLbl(lblVersion) & " " & App.Major & "." & Format$(App.Minor, "00") & "." & Format$(App.Revision, "0000")
     lblTitle.Caption = App.ProductName
     lblCopyright.Caption = App.LegalCopyright
-    lblDesc.Caption = GetLbl(lblDescription)
-    lblBrazil.Caption = GetLbl(lblMadeInBrazil)
-    lblTrans.Caption = GetLbl(lblTranslated)
+    If gLCID <> 1033 Then
+        lblDesc.Caption = GetLbl(lblDescription)
+        lblBrazil.Caption = GetLbl(lblMadeInBrazil)
+        lblTrans.Caption = GetLbl(lblTranslated)
+        lblLink(2).Caption = GetLbl(lblTranslatorName)
+        lblLink(2).ToolTipText = GetLbl(lblTranslatorURL)
+        cmdOK.Caption = GetLbl(lblOK)
+        cmdSysInfo.Caption = GetLbl(lblSysInfo)
+    End If
     lblLink(0).MouseIcon = frmPost.imgHand.Picture
     lblLink(1).MouseIcon = frmPost.imgHand.Picture
     lblLink(2).MouseIcon = frmPost.imgHand.Picture
-    lblLink(2).Caption = GetLbl(lblTranslatorName)
-    lblLink(2).ToolTipText = GetLbl(lblTranslatorURL)
-    If GetUserDefaultLCID() = 1046 Then
-        lblLink(0).Caption = "http://wbloggar.com/brasil/"
-    End If
-    cmdOK.Caption = GetLbl(lblOK)
-    cmdSysInfo.Caption = GetLbl(lblSysInfo)
 End Sub
 
 Private Sub lblLink_Click(Index As Integer)

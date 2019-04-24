@@ -55,7 +55,7 @@ Begin VB.Form frmBlog
       FrontTabForeColor=   -2147483630
       Caption         =   "Preview|Upload|Media"
       Align           =   0
-      CurrTab         =   0
+      CurrTab         =   2
       FirstTab        =   0
       Style           =   3
       Position        =   0
@@ -77,7 +77,7 @@ Begin VB.Form frmBlog
       Separators      =   0   'False
       Begin SizerOneLibCtl.ElasticOne ElasticOne2 
          Height          =   4680
-         Left            =   195
+         Left            =   -5655
          TabIndex        =   35
          TabStop         =   0   'False
          Top             =   480
@@ -310,7 +310,7 @@ Begin VB.Form frmBlog
       End
       Begin SizerOneLibCtl.ElasticOne ElasticOne1 
          Height          =   4680
-         Left            =   5745
+         Left            =   -5355
          TabIndex        =   33
          TabStop         =   0   'False
          Top             =   480
@@ -626,7 +626,7 @@ Begin VB.Form frmBlog
       End
       Begin SizerOneLibCtl.ElasticOne ElasticOne9 
          Height          =   4680
-         Left            =   6045
+         Left            =   195
          TabIndex        =   40
          TabStop         =   0   'False
          Top             =   480
@@ -1028,7 +1028,7 @@ End Sub
 
 Private Sub lblTip_Click(Index As Integer)
     If Index = 2 Then
-        frmPost.OpenWebPage "http://wbloggar.com/download.php"
+        frmPost.OpenWebPage "http://web.archive.org/web/20090330164700if_/http://wbloggar.com/download.php"
     End If
 End Sub
 

@@ -1080,7 +1080,7 @@ Dim lngDefaultLCID As Long
         gSettings.SkinFolder = App.Path & "\Skins\Windows XP"
     End If
     gSettings.Silent = Val(objXMLReg.GetSetting(App.Title, "Settings", "Silent", "0"))
-    gSettings.DefaultBrowser = Val(objXMLReg.GetSetting(App.Title, "Settings", "DefaultBrowser", "0"))
+    gSettings.DefaultBrowser = Val(objXMLReg.GetSetting(App.Title, "Settings", "DefaultBrowser", "1"))
     If gSettings.SpellLCID = 0 Then
         lngDefaultLCID = GetUserDefaultLCID()
         If Not FileExists(App.Path & "\Lang\" & lngDefaultLCID & ".lng") Then

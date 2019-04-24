@@ -168,7 +168,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2D6E4
+               _GridInfo       =   $"Post.frx":2C744
                Begin SizerOneLibCtl.ElasticOne ElasticOne2 
                   Height          =   735
                   Left            =   0
@@ -333,7 +333,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2D753
+                  MouseIcon       =   "Post.frx":2C7B3
                End
                Begin wbloggar.HtmlEdit txtMore 
                   Height          =   1485
@@ -353,7 +353,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2D76F
+                  MouseIcon       =   "Post.frx":2C7CF
                End
             End
             Begin SizerOneLibCtl.ElasticOne pnlEditor 
@@ -410,7 +410,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2D78B
+               _GridInfo       =   $"Post.frx":2C7EB
                Begin VB.CommandButton cmdCategories 
                   Caption         =   "..."
                   Height          =   315
@@ -456,7 +456,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2D7FB
+                  MouseIcon       =   "Post.frx":2C85B
                End
             End
             Begin SHDocVwCtl.WebBrowser webPreview 
@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   ""
+               Location        =   "http:///"
             End
          End
          Begin VB.Label lblStatus 
@@ -546,7 +546,7 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   1
       Left            =   4020
-      Picture         =   "Post.frx":2D817
+      Picture         =   "Post.frx":2C877
       Top             =   6000
       Width           =   240
    End
@@ -554,14 +554,14 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   0
       Left            =   3720
-      Picture         =   "Post.frx":2DDA1
+      Picture         =   "Post.frx":2CE01
       Top             =   6000
       Width           =   240
    End
    Begin VB.Image imgHand 
       Height          =   480
       Left            =   1440
-      Picture         =   "Post.frx":2E32B
+      Picture         =   "Post.frx":2D38B
       Top             =   5880
       Visible         =   0   'False
       Width           =   480
@@ -569,7 +569,7 @@ Begin VB.Form frmPost
    Begin VB.Image imgIcon16 
       Height          =   240
       Left            =   1140
-      Picture         =   "Post.frx":2E481
+      Picture         =   "Post.frx":2D4E1
       Top             =   5940
       Visible         =   0   'False
       Width           =   240
@@ -1752,21 +1752,11 @@ Dim strExcerpt As String, strKeywords As String
             End If
         End If
     Case "miHelp"
-        Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
-        Exit Sub
-    Case "miFAQ"
-        If GetUserDefaultLCID = 1046 Then
-            OpenWebPage "http://wbloggar.com/brasil/faq/"
-        Else
-            OpenWebPage "http://wbloggar.com/faq/"
-        End If
+        ' Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
+        OpenWebPage "http://web.archive.org/web/20090330164700if_/http://wbloggar.com/faq.php"
         Exit Sub
     Case "miWebPage"
-        If GetUserDefaultLCID = 1046 Then
-            OpenWebPage "http://wbloggar.com/brasil/"
-        Else
-            OpenWebPage "http://wbloggar.com/"
-        End If
+        OpenWebPage "https://github.com/lvcabral/w.bloggar"
         Exit Sub
     Case "miDonate"
         OpenWebPage "https://www.paypal.com/xclick/business=paypal%40wbloggar.com&item_name=w.bloggar&item_number=1"

@@ -3,11 +3,17 @@ Arquivo.....: wbloggar.exe
 Documento...: Histórico das Alterações e Correções das Releases do Produto
 
 
+*** Release v4.03.0201 *** 25/04/2019 ***
+- Codigo fonte publicado no Github;
+- Licença de uso alterada para GPL v2;
+- Atualizados os web links para novos endereços;
+- Configuração padrão alterada para usar o browser default;
+
 *** Release v4.03.0200 *** 06/06/2008 ***
 - Incluido tratamento de erro para o caso do xml de um GetPost vir sem data;
 
 *** Release v4.03.0199 *** 23/12/2007 ***
-- Includos dois botoes na janela de posts recentes para marcar todos e 
+- Incluidos dois botoes na janela de posts recentes para marcar todos e 
   desmarcar todos os posts.
 - Incluído suporte ao padrão portable applications, se ele detecta a pasta 
   Data abaixo da pasta da applicação.

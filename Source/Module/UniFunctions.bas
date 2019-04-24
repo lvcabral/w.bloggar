@@ -35,7 +35,7 @@ Option Explicit
         Dim n As Long
     
         If LenB(sUTF8) = 0 Then Exit Function
-        m_bIsNt = Tru
+        m_bIsNt = True
         If m_bIsNt Then
               On Error GoTo EndFunction
               bytUtf8 = StrConv(sUTF8, vbFromUnicode)
@@ -77,7 +77,7 @@ Option Explicit
                           TwoBytes(1) = BArray(i): i = i + 1
                           TStr = TStr & ChrW$((TwoBytes(0) And &H1F) * &H40 + (TwoBytes(1) And &H3F))
                     Else
-                          TStr = TStr & Chr$(AByte): i = i + 1           
+                          TStr = TStr & Chr$(AByte): i = i + 1
                     End If
               Loop
               UTF8_Decode = TStr
@@ -133,5 +133,5 @@ EndFunction:
         End If
         If bHTML Then
               UTF8_Encode = Replace$(UTF8_Encode, vbCrLf, "<br/>")
-        End If   
+        End If
   End Function
