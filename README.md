@@ -2,7 +2,7 @@
 
 A Universal Weblog Editor for Windows
 
-![Logo](https://web.archive.org/web/20090422082706im_/http://wbloggar.com/images/wb-tools.png)
+![w.bloggar](http://lvcabral.com/images/wbloggar-github.gif)
 
 ## The Project
 
@@ -27,8 +27,6 @@ Because w.bloggar runs over the Windows GUI, it allows the user to edit posts wi
 Another great advantage of w.bloggar is that it is compatible with most of the weblog systems available, allowing an advanced user to have only one interface to several accounts hosted on several different sites, using different publishing systems.
 
 To communicate with the weblog, w.bloggar requires that the blog system have implemented an API (Application Programming Interface.) Currently, w.bloggar is compatible with all tools that implements **Blogger API**, **metaWeblog API**, **MovableType API** and **b2 API**; all based on the [XML-RPC definition](http://xmlrpc.scripting.com/).
-
-![UI](https://web.archive.org/web/20100101032924if_/http://wbloggar.com/images/wb4-shot1.png)
 
 ## The Features
 
