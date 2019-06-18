@@ -20,7 +20,7 @@ Now I'm releasing the source code here, as a preservation effort for this projec
 
 ## The Application
 
-The w.bloggar is an application that acts as an interface between the user and one or more blogs; in other words, it is a Post and Template editor, with several features and resources that the browser based blog editors did not use offer.
+The w.bloggar is an application that acts as an interface between the user and one or more blogs; in other words, it is a Post and Template editor, with several features and resources that the browser based blog editors did not offer at the time.
 
 Because w.bloggar runs over the Windows GUI, it allows the user to edit posts without being connected to the Internet (that was an advantage back in the day of dial-up connections). Posts can be saved locally; and anytime the user wants to publish a new text, one click on the w.bloggar icon in the system tray brings up the editor, and one more click will post it to the weblog.
 
@@ -47,13 +47,13 @@ To communicate with the weblog, w.bloggar requires that the blog system have imp
 - File and Image Upload
 - Custom Tags Menu
 - Toolbar Icons Skin
-- Supports Windows XP, Vista, 7, 8, 8.1 and 10
 - Supports to the advanced MovableType options
-- Add Account Wizard New!
+- Add Account Wizard
 - Support to Multiple Categories
 - Option to XHTML compliance
 - Import and Export Settings
 - Ping to Weblogs.Com, blo.gs, Technorati and ping-o-matic
+- Supports Windows XP, Vista, 7, 8, 8.1 and 10
 
 ## The ActiveX Dependencies
 
