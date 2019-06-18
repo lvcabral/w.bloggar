@@ -554,7 +554,7 @@ Private Const VER_SUITE_PERSONAL = 512
 Sub Main()
 On Error GoTo ErrorHandler
 Dim intLastAccount As Integer
-Dim strOS As String
+Dim sngOS As Single
     'Uninstall flag
     If Left(LCase(Command()), 2) = "-u" Then
         Associate False
@@ -564,16 +564,9 @@ Dim strOS As String
     If App.PrevInstance Then
         ActivatePrevInstance Command()
     End If
-    'Verify Minimum IE Version
-    #If compIE Then
-    If GetIeVer() < "5.0" Then
-        MsgBox GetMsg(msgMinIEVersion), vbCritical
-        End
-    End If
-    #End If
     'Initialize Skinned controls on XP or 2003 Server
-    strOS = GetOSVer()
-    If Left(strOS, 10) = "Windows XP" Or Left(strOS, 12) = "Windows 2003" Then
+    sngOS = GetOSVerNum()
+    If sngOS >= 5.1 Then
         Call InitCommonControls
         gIsXP = True
     End If
@@ -2267,9 +2260,51 @@ Public Function GetOSVer() As String
                             GetOSVer = "Windows 2003 Server"
                         End If
                     End Select
+                Case Is = 2 'win XP Pro 64bit or win 2003 server
+                    Select Case osv.wProductType
+                    Case Is = VER_NT_WORKSTATION 'win XP Pro
+                        GetOSVer = "Windows XP Professional x64"
+                    Case Else
+                        GetOSVer = "Windows 2003 Server R2"
+                    End Select
+                End Select
+            Case Is = 6
+                Select Case osv.dwMinorVersion
+                Case Is = 0 'Vista or Server 2008
+                    Select Case osv.wProductType
+                    Case Is = VER_NT_WORKSTATION
+                        GetOSVer = "Windows Vista"
+                    Case Else
+                        GetOSVer = "Windows 2008 Server"
+                    End Select
+                Case Is = 1 'win 7 or win 2008 R2 Server
+                    Select Case osv.wProductType
+                    Case Is = VER_NT_WORKSTATION 'win 7
+                        GetOSVer = "Windows 7"
+                    Case Else
+                        GetOSVer = "Windows 2008 R2"
+                    End Select
+                Case Is = 2 'win 8+ or win 2012+ Server
+                    Select Case osv.wProductType
+                    Case Is = VER_NT_WORKSTATION 'win 7
+                        GetOSVer = "Windows 8 or newer"
+                    Case Else
+                        GetOSVer = "Windows 2012 Server or newer"
+                    End Select
                 End Select
             End Select
+        Case Else
+            GetOSVer = "Windows " + CStr(osv.dwMajorVersion) + "." + CStr(osv.dwMinorVersion)
         End Select
+    End If
+End Function
+
+Function GetOSVerNum() As Single
+    Dim osv As OSVERSIONINFOEX
+    osv.dwOSVersionInfoSize = Len(osv)
+
+    If GetVersionEx(osv) = 1 Then
+        GetOSVerNum = Val(CStr(osv.dwMajorVersion) + "." + CStr(osv.dwMinorVersion))
     End If
 End Function
 
