@@ -2,7 +2,7 @@ Software....: w.bloggar - Universal XML-RPC Weblog Interface
 File........: wbloggar.exe
 Document....: Log of changes and improvements
 
-*** Release v4.04.0201 *** 18-Jun-2019 *** Open Source Version
+*** Release v4.04.0203 *** 18-Jun-2019 *** Open Source Version
 ADDED....: Source code released at GitHub;
 CHANGED..: License change to GPL v2;
 CHANGED..: All web links updated to current live websites;
