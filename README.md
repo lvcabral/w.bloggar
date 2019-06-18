@@ -79,7 +79,7 @@ All these dependency binaries are available at the folder named "Libs" inside th
 
 ## The License
 
-Copyright (C) 2011-2019 Marcelo Lv Cabral. All rights reserved.
+Copyright (C) 2001-2019 Marcelo Lv Cabral. All rights reserved.
 
 Licensed under [GPL v2](https://github.com/lvcabral/w.bloggar/blob/master/LICENSE) License.
 
