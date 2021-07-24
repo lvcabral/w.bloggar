@@ -165,7 +165,7 @@ On Error Resume Next
         If Trim(txtMenu.Text) <> "" Then
             frmPost.acbMain.Bands("bndPopCustom").Tools("miCustomF" & cboCustom.ListIndex + 1).Caption = gSettings.CustomTag(cboCustom.ListIndex + 1, 1)
         Else
-            frmPost.acbMain.Bands("bndPopCustom").Tools("miCustomF" & cboCustom.ListIndex + 1).Caption = "ï¿½ " & GetLbl(lblClickToEdit) & " ï¿½"
+            frmPost.acbMain.Bands("bndPopCustom").Tools("miCustomF" & cboCustom.ListIndex + 1).Caption = "« " & GetLbl(lblClickToEdit) & " »"
         End If
     End If
     Unload Me

@@ -2023,13 +2023,13 @@ Dim strPreview As String, strTemp As String, strCSS As String
         End If
         'Replace Fix Space, Media Information and
         'Transform relative paths into full url's
-        strPost = Replace(strPost, "�", "&nbsp;")
+        strPost = Replace(strPost, "?", "&nbsp;")
         strPost = ReplaceMediaInfo(strPost)
         strPost = Path2URL(strPost, " background=")
         strPost = Path2URL(strPost, " src=")
         strPost = Path2URL(strPost, " href=")
         If Trim(strMore) <> "" Then
-            strMore = Replace(strMore, "�", "&nbsp;")
+            strMore = Replace(strMore, "?", "&nbsp;")
             strMore = ReplaceMediaInfo(strMore)
             strMore = Path2URL(strMore, " background=")
             strMore = Path2URL(strMore, " src=")
@@ -2308,7 +2308,7 @@ Dim strPlay As String
             acbMain.Tools("miPasteText").Enabled = (Clipboard.GetText <> "")
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         ElseIf TypeName(oControl) = "ComboBox" Then
-            'O Combo s� aceita Paste no Style = 0
+            'O Combo s? aceita Paste no Style = 0
             acbMain.Tools("miUndo").Enabled = SendMessage(oControl.hwnd, EM_CANUNDO, 0, ByVal 0&)
             acbMain.Tools("miCopy").Enabled = (oControl.Text <> "")
             If (oControl.Style = 0) Then
@@ -2318,7 +2318,7 @@ Dim strPlay As String
             End If
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         Else
-            ' o controle n�o aceita Cut/Copy/Paste
+            ' o controle n?o aceita Cut/Copy/Paste
             acbMain.Tools("miUndo").Enabled = False
             acbMain.Tools("miCopy").Enabled = False
             acbMain.Tools("miCut").Enabled = False
@@ -2930,7 +2930,7 @@ Dim i As Integer
     txtKeywords.tag = GetLbl(lblKeywords) & ":"
     cmdMore.Caption = GetLbl(lblAdvanced)
     With acbMain.Bands("bndPopCustom")
-        .Tools("miCustomF1").Caption = "� " & GetLbl(lblClickToEdit) & " �"
+        .Tools("miCustomF1").Caption = "? " & GetLbl(lblClickToEdit) & " ?"
         For i = 2 To 12
             .Tools("miCustomF" & i).Caption = .Tools("miCustomF1").Caption
         Next

@@ -47,6 +47,7 @@ On Error GoTo ErrorHandler
 Dim objClient As xmlClient
 Dim DOMDocument As DOMDocument
 Dim strMethod As String
+Dim varResponse As Variant
 Dim varStruct(), b As Integer
 Dim objBlog As xmlStruct
 Dim strBlogName As String
@@ -63,7 +64,11 @@ Dim strBlogName As String
         Set DOMDocument = objClient.Execute(gAccount.Host, gAccount.Page, strMethod, _
                                             APPKEY, gAccount.User, gAccount.Password)
     End If
-    objClient.ResponseToVariant DOMDocument, varStruct
+    
+    objClient.ResponseToVariant DOMDocument, varResponse
+    If VarType(varResponse) = vbArray + vbVariant Then
+        varStruct = varResponse
+    End If
     frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.Clear
     ReDim gBlogs(0)
     For b = 0 To UBound(varStruct)
@@ -148,14 +153,14 @@ Dim varResponse
     If gAccount.PostMethod = API_METAWEBLOG Or _
        gAccount.PostMethod = API_MT Then
         'Process Text
-        If gSettings.AutoConvert Then 'Conversï¿½o HTML
+        If gSettings.AutoConvert Then 'Conversão HTML
             strTitle = ConvertHTMLEntities(strTitle, True)
             strPost = ConvertHTMLEntities(strPost, True)
             strMore = ConvertHTMLEntities(strMore, True)
             strExcerpt = ConvertHTMLEntities(strExcerpt, True)
             strKeywords = ConvertHTMLEntities(strKeywords, True)
         End If
-        If gAccount.UTF8 Or gAccount.UTF8OnPost Then 'Conversï¿½o UTF-8
+        If gAccount.UTF8 Or gAccount.UTF8OnPost Then 'Conversão UTF-8
             strTitle = UTF8_Encode(strTitle)
             strPost = UTF8_Encode(strPost)
             strMore = UTF8_Encode(strMore)

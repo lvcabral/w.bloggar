@@ -8,4 +8,5 @@
 *.tmp
 *.oca
 thumbs.db
-
+libs/
+out/
