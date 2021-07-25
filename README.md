@@ -16,7 +16,7 @@ Around 2007 new browser frameworks like AJAX, started to enable rich editors on 
 
 More recently, in 2013, I was invited to present a panel about w.bloggar history at the [Campus Party](https://www.campus-party.org/) Recife in Brazil. If you wish you can see the [presentation slides (in Portuguese)](https://www.slideshare.net/slideshow/embed_code/key/FZk0LfRlmH3etM) I created for the event.
 
-Finally in 2019 I released the source code here, with bug fixes and updating support to recent Windows versions, as a preservation effort for this project. If you just want to try it out, download the portable version at the [Release page](https://github.com/lvcabral/w.bloggar/releases), unzip in a folder and have fun blogging. 
+Finally in 2019 I released the source code here, with bug fixes and updated support for recent Windows versions, as a preservation effort for this project. If you just want to try it out, download the portable version at the [Release page](https://github.com/lvcabral/w.bloggar/releases), unzip in a folder and have fun blogging. 
 
 ## The Application
 
