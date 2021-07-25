@@ -92,6 +92,7 @@ Begin VB.Form frmCategories
          Width           =   2745
          Begin VB.CommandButton cmdButton 
             Caption         =   "&OK"
+            Default         =   -1  'True
             Height          =   465
             Index           =   0
             Left            =   120
