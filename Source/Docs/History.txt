@@ -2,7 +2,11 @@ Software....: w.bloggar - Universal XML-RPC Weblog Interface
 File........: wbloggar.exe
 Document....: Log of changes and improvements
 
-*** Release v4.04.0203 *** 18-Jun-2019 *** Open Source Version
+*** Release v4.05.0207 *** 24-Jul-2021 *** Bug Fixes
+FIXED....: Encoding of some source files preventing loading of .post files
+FIXED....: Loading of categories was not working
+
+*** Release v4.04.0204 *** 18-Jun-2019 *** Open Source Version
 ADDED....: Source code released at GitHub;
 CHANGED..: License change to GPL v2;
 CHANGED..: All web links updated to current live websites;
@@ -81,7 +85,7 @@ CHANGED..: The concept of a single default draft file is not used anymore,
            now you can save to multiple .post files;
 CHANGED..: The Settings window was split in two: Options (with general app 
            settings) and Blog Properties (with blog settings)
-CHANGED..: The *.xml and *.chg files are now stored at the user´s 
+CHANGED..: The *.xml and *.chg files are now stored at the userï¿½s 
            Application Data folder;
 CHANGED..: The HTTPS option at Account Properties now changes the 
            default port to 443 when checked and 80 when unchecked;
@@ -89,7 +93,7 @@ CHANGED..: The tray icon now is always visible if the "Minimize to Tray"
            option is selected;
 CHANGED..: Now any option that would change the edit area will show up a 
            message box to ask if you want to save the current post;
-CHANGED..: The Recent Posts window now can be resized and maximized and it´s
+CHANGED..: The Recent Posts window now can be resized and maximized and itï¿½s
            position and size are now saved;
 CHANGED..: The list at the Recent Posts window now displays the Title of posts
            (when available) instead of the date/time; 
@@ -98,7 +102,7 @@ CHANGED..: All Accounts and Settings are no longer stored on Windows Registry,
 CHANGED..: More Text and Preview options moved from Tools menu to View menu;
 CHANGED..: Updated Blogger.com CMS.ini settings, now the service API uses HTTPS;
 CORRECTED: Overflow error when a port greater than 32767 was set;
-CORRECTED: Save & Publish template to Blogger accounts doesn´t use anymore the
+CORRECTED: Save & Publish template to Blogger accounts doesnï¿½t use anymore the
            deleted "blogger2.publish" method;
 CORRECTED: The HTML toolbar no longer disapears when a post is published or
            is opened to be edited;

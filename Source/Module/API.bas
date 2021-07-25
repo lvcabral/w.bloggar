@@ -71,23 +71,25 @@ Dim strBlogName As String
     End If
     frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.Clear
     ReDim gBlogs(0)
-    For b = 0 To UBound(varStruct)
-        Set objBlog = varStruct(b)
-        strBlogName = objBlog.Member("blogName").Value
-        If gAccount.UTF8 Then
-            frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem UTF8_Decode(strBlogName)
-        Else
-            frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem strBlogName
-        End If
-        ReDim Preserve gBlogs(b)
-        gBlogs(b).URL = objBlog.Member("url").Value
-        gBlogs(b).BlogID = objBlog.Member("blogid").Value
-        gBlogs(b).Name = objBlog.Member("blogName").Value
-        On Error Resume Next 'New API
-        gBlogs(b).IsAdmin = objBlog.Member("isAdmin").Value
-        If Err <> 0 Then gBlogs(b).IsAdmin = True
-        On Error GoTo ErrorHandler
-    Next
+    If IsValidArray(varStruct) Then
+        For b = 0 To UBound(varStruct)
+            Set objBlog = varStruct(b)
+            strBlogName = objBlog.Member("blogName").Value
+            If gAccount.UTF8 Then
+                frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem UTF8_Decode(strBlogName)
+            Else
+                frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem strBlogName
+            End If
+            ReDim Preserve gBlogs(b)
+            gBlogs(b).URL = objBlog.Member("url").Value
+            gBlogs(b).BlogID = objBlog.Member("blogid").Value
+            gBlogs(b).Name = objBlog.Member("blogName").Value
+            On Error Resume Next 'New API
+            gBlogs(b).IsAdmin = objBlog.Member("isAdmin").Value
+            If Err <> 0 Then gBlogs(b).IsAdmin = True
+            On Error GoTo ErrorHandler
+        Next
+    End If
     If frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.Count > 0 Then
         'Save the blogs.xml if the blog list was downloaded
         If Not XMLCache Then
@@ -1024,4 +1026,18 @@ Dim objClient As xmlClient
     Exit Function
 ErrorHandler:
     ErrorMessage Err.Number, Err.Description, "GetXMLCliente"
+End Function
+
+Private Function IsValidArray(vTemp As Variant) As Boolean
+    On Error GoTo ProcError
+    Dim lTmp As Long
+
+    lTmp = UBound(vTemp) ' Error would occur here
+
+    IsValidArray = True
+    Exit Function
+ProcError:
+    'If error is something other than "Subscript
+    'out of range", then display the error
+    If Not Err.Number = 9 Then Err.Raise (Err.Number)
 End Function

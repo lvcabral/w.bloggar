@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   "http:///"
+               Location        =   ""
             End
          End
          Begin VB.Label lblStatus 
@@ -1906,6 +1906,7 @@ Dim objTool As Tool
     acfPost.MinimizeToTray = gSettings.Tray
     If gAccount.User <> "" Then
         LoadBlogs FileExists(gAppDataPath & "\blogs" & Format(gAccount.Current, "00") & ".xml")
+        LoadCategories True
     End If
     If gSettings.StartMinimized Then
         DoEvents
