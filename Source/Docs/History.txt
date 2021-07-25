@@ -2,7 +2,7 @@ Software....: w.bloggar - Universal XML-RPC Weblog Interface
 File........: wbloggar.exe
 Document....: Log of changes and improvements
 
-*** Release v4.05.0208 *** 25-Jul-2021 *** Category Improvements and Bug Fixes
+*** Release v4.05.0209 *** 25-Jul-2021 *** Category Improvements and Bug Fixes
 CHANGED..: Categories window is resizeable and now shows 3 columns of items
 CHANGED..: Add Link window now shows https:// as default option
 FIXED....: Encoding of some source files preventing loading of .post files
