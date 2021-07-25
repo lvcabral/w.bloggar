@@ -1,11 +1,12 @@
 VERSION 5.00
+Object = "{9E883861-2808-4487-913D-EA332634AC0D}#1.0#0"; "SizerOne.ocx"
 Begin VB.Form frmCategories 
-   BorderStyle     =   3  'Fixed Dialog
+   BorderStyle     =   5  'Sizable ToolWindow
    Caption         =   "Categories"
-   ClientHeight    =   3045
-   ClientLeft      =   45
-   ClientTop       =   330
-   ClientWidth     =   3930
+   ClientHeight    =   4890
+   ClientLeft      =   360
+   ClientTop       =   705
+   ClientWidth     =   6210
    BeginProperty Font 
       Name            =   "Tahoma"
       Size            =   8.25
@@ -19,36 +20,105 @@ Begin VB.Form frmCategories
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3045
-   ScaleWidth      =   3930
+   ScaleHeight     =   4890
+   ScaleWidth      =   6210
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   1  'CenterOwner
-   Begin VB.CommandButton cmdButton 
-      Caption         =   "&OK"
-      Height          =   375
-      Index           =   0
-      Left            =   1380
-      TabIndex        =   1
-      Top             =   2580
-      Width           =   1155
-   End
-   Begin VB.CommandButton cmdButton 
-      Cancel          =   -1  'True
-      Caption         =   "&Cancel"
-      Height          =   375
-      Index           =   1
-      Left            =   2640
-      TabIndex        =   2
-      Top             =   2580
-      Width           =   1155
-   End
-   Begin VB.ListBox lstCategs 
-      Height          =   2310
-      Left            =   105
-      Style           =   1  'Checkbox
+   Begin SizerOneLibCtl.ElasticOne ElasticOne1 
+      Height          =   4890
+      Left            =   0
       TabIndex        =   0
-      Top             =   105
-      Width           =   3690
+      TabStop         =   0   'False
+      Tag             =   "v"
+      Top             =   0
+      Width           =   6210
+      _cx             =   10954
+      _cy             =   8625
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Enabled         =   -1  'True
+      Appearance      =   0
+      MousePointer    =   0
+      _ConvInfo       =   1
+      Version         =   700
+      BackColor       =   -2147483633
+      ForeColor       =   -2147483630
+      FloodColor      =   6553600
+      ForeColorDisabled=   -2147483631
+      Caption         =   ""
+      Align           =   5
+      AutoSizeChildren=   8
+      BorderWidth     =   6
+      ChildSpacing    =   4
+      Splitter        =   0   'False
+      FloodDirection  =   0
+      FloodPercent    =   0
+      CaptionPos      =   1
+      WordWrap        =   -1  'True
+      MaxChildSize    =   0
+      MinChildSize    =   0
+      TagWidth        =   0
+      TagPosition     =   0
+      Style           =   0
+      TagSplit        =   2
+      PicturePos      =   4
+      CaptionStyle    =   0
+      ResizeFonts     =   0   'False
+      GridRows        =   2
+      GridCols        =   2
+      Frame           =   3
+      FrameStyle      =   0
+      FrameWidth      =   1
+      FrameColor      =   -2147483628
+      FrameShadow     =   -2147483632
+      FloodStyle      =   1
+      _GridInfo       =   $"Categories.frx":000C
+      Begin VB.PictureBox Picture1 
+         Appearance      =   0  'Flat
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   600
+         Left            =   3375
+         ScaleHeight     =   600
+         ScaleWidth      =   2745
+         TabIndex        =   2
+         Top             =   4200
+         Width           =   2745
+         Begin VB.CommandButton cmdButton 
+            Caption         =   "&OK"
+            Height          =   465
+            Index           =   0
+            Left            =   120
+            TabIndex        =   4
+            Top             =   120
+            Width           =   1215
+         End
+         Begin VB.CommandButton cmdButton 
+            Cancel          =   -1  'True
+            Caption         =   "&Cancel"
+            Height          =   465
+            Index           =   1
+            Left            =   1440
+            TabIndex        =   3
+            Top             =   120
+            Width           =   1215
+         End
+      End
+      Begin VB.ListBox lstCategs 
+         Columns         =   3
+         Height          =   3885
+         Left            =   90
+         Style           =   1  'Checkbox
+         TabIndex        =   1
+         Top             =   90
+         Width           =   6030
+      End
    End
 End
 Attribute VB_Name = "frmCategories"
@@ -110,6 +180,7 @@ Private Sub Form_Load()
 On Error Resume Next
 Dim c As Integer
     LocalizeForm
+    LoadFormSettings Me, frmPost.Left + 300, frmPost.Top + 300, 6300, 5300
     For c = 1 To frmPost.cboPostCat.ListCount - 2
         If c <> frmPost.cboPostCat.ListIndex Then
             lstCategs.AddItem frmPost.cboPostCat.List(c)
@@ -136,4 +207,8 @@ On Error GoTo ErrorHandler
 ErrorHandler:
     Debug.Print "Error on Localize: " & Me.Name & " - " & "(" & Err & ") " & Err.Description
     Resume Next
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    SaveFormSettings Me
 End Sub
