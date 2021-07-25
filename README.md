@@ -16,17 +16,17 @@ Around 2007 new browser frameworks like AJAX, started to enable rich editors on 
 
 More recently, in 2013, I was invited to present a panel about w.bloggar history at the [Campus Party](https://www.campus-party.org/) Recife in Brazil. If you wish you can see the [presentation slides (in Portuguese)](https://www.slideshare.net/slideshow/embed_code/key/FZk0LfRlmH3etM) I created for the event.
 
-Now I'm releasing the source code here, as a preservation effort for this project. If you just want to try it out, download the portable version at the [Release page](https://github.com/lvcabral/w.bloggar/releases), unzip in a folder and have fun blogging. 
+Finally in 2019 I released the source code here, with bug fixes and updating support to recent Windows versions, as a preservation effort for this project. If you just want to try it out, download the portable version at the [Release page](https://github.com/lvcabral/w.bloggar/releases), unzip in a folder and have fun blogging. 
 
 ## The Application
 
-The w.bloggar is an application that acts as an interface between the user and one or more blogs; in other words, it is a Post and Template editor, with several features and resources that the browser based blog editors did not offer at the time.
+The **w.bloggar** is an application that acts as an interface between the user and one or more blogs; in other words, it is a Post and Template editor, with several features and resources that the browser based blog editors did not offer at the time.
 
-Because w.bloggar runs over the Windows GUI, it allows the user to edit posts without being connected to the Internet (that was an advantage back in the day of dial-up connections). Posts can be saved locally; and anytime the user wants to publish a new text, one click on the w.bloggar icon in the system tray brings up the editor, and one more click will post it to the weblog.
+Because **w.bloggar** runs over the Windows GUI, it allows the user to edit posts without being connected to the Internet (that was an advantage back in the day of dial-up connections). Posts can be saved locally; and anytime the user wants to publish a new text, one click on the **w.bloggar** icon in the system tray brings up the editor, and one more click will post it to the weblog.
 
-Another great advantage of w.bloggar is that it is compatible with most of the weblog systems available, allowing an advanced user to have only one interface to several accounts hosted on several different sites, using different publishing systems.
+Another great advantage of **w.bloggar** is that it is compatible with most of the weblog systems available, allowing an advanced user to have only one interface to several accounts hosted on several different sites, using different publishing systems.
 
-To communicate with the weblog, w.bloggar requires that the blog system have implemented an API (Application Programming Interface.) Currently, w.bloggar is compatible with all tools that implements **Blogger API**, **metaWeblog API**, **MovableType API** and **b2 API**; all based on the [XML-RPC definition](http://xmlrpc.scripting.com/).
+To communicate with the weblog, **w.bloggar** requires that the blog system have implemented an API (Application Programming Interface.) Currently, it is compatible with all tools that implements **Blogger API**, **metaWeblog API**, **MovableType API** and **b2 API**; all based on the [XML-RPC definition](http://xmlrpc.scripting.com/).
 
 ## The Features
 
@@ -79,7 +79,7 @@ All these dependency binaries are available at the folder named "Libs" inside th
 
 ## The License
 
-Copyright (C) 2001-2019 Marcelo Lv Cabral. All rights reserved.
+Copyright (C) 2001-2021 Marcelo Lv Cabral. All rights reserved.
 
 Licensed under [GPL v2](https://github.com/lvcabral/w.bloggar/blob/master/LICENSE) License.
 
