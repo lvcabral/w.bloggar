@@ -89,9 +89,11 @@ Begin VB.Form frmLink
    End
    Begin VB.ComboBox cboURL 
       Height          =   315
+      ItemData        =   "Link.frx":0010
       Left            =   1020
+      List            =   "Link.frx":0012
       TabIndex        =   1
-      Text            =   "http://"
+      Text            =   "https://"
       Top             =   120
       Width           =   5580
    End
@@ -175,7 +177,7 @@ End Sub
 Private Sub cmdButton_Click(Index As Integer)
 Dim i As Integer
     If Index = 0 Then
-        If Trim(cboURL.Text) = "" Or Trim(cboURL.Text) = "http://" Then
+        If Trim(cboURL.Text) = "" Or Trim(cboURL.Text) = "http://" Or Trim(cboURL.Text) = "https://" Then
             MsgBox GetMsg(msgEnterURL), vbInformation
             cboURL.SetFocus
             cboURL.SelStart = Len(cboURL.Text)
@@ -222,6 +224,7 @@ On Error Resume Next
     'Load Links
     Set objXMLReg = New XMLRegistry
     objXMLReg.OpenXMLFile gAppDataPath & XML_SETTINGS
+    cboURL.AddItem "https://"
     cboURL.AddItem "http://"
     cboURL.AddItem "mailto:"
     For i = 0 To 30

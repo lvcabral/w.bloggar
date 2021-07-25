@@ -1382,7 +1382,7 @@ Function HTMLCode(strRTFCode As String) As String
     Case "c1"
         HTMLCode = "&Aacute;"
     Case "e1"
-        HTMLCode = "&aacute;"    'ï¿½
+        HTMLCode = "&aacute;"    'á
     Case "c2"
         HTMLCode = "&Acirc;"
     Case "e2"
@@ -1434,7 +1434,7 @@ Function HTMLCode(strRTFCode As String) As String
     Case "cd"
         HTMLCode = "&Iacute;"
     Case "ed"
-        HTMLCode = "&iacute;"    'ï¿½
+        HTMLCode = "&iacute;"    'í
     Case "ce"
         HTMLCode = "&Icirc;"
     Case "ee"
@@ -1554,9 +1554,9 @@ Function HTMLCode(strRTFCode As String) As String
     Case "85"
         HTMLCode = "..."
     Case "9e"
-        HTMLCode = "ï¿½"    'ï¿½
+        HTMLCode = "ž"    'ž
     Case "9a"
-        HTMLCode = "ï¿½"    'ï¿½
+        HTMLCode = "š"    'š
     End Select
 End Function
 

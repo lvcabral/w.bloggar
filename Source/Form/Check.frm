@@ -264,8 +264,8 @@ Function getNextWordDivider(ByVal strText As String, ByVal lStartPos As Long) As
         '// any letter or number
         '--changed by Marcelo Cabral (09/06/2002)
         '--Added special characters
-        Case "A" To "Z", "a" To "z", "ï¿½" To "ï¿½", "ï¿½" To "ï¿½", _
-             "ï¿½" To "ï¿½", 0 To 9, "-", "&", "/"
+        Case "A" To "Z", "a" To "z", "À" To "Ö", "Ø" To "ö", _
+             "ø" To "ÿ", 0 To 9, "-", "&", "/"
             DoEvents
         '// Close a HTML Tag
         Case "<"
@@ -405,7 +405,7 @@ On Error GoTo ErrHandler
         IsCorrectWord = True
         Exit Function
     End If
-    strSoundExCode = SoundEx(sWord) ' Generate the code for the word
+    strSoundExCode = Soundex(sWord) ' Generate the code for the word
     If Len(strSoundExCode) > 0 Then
         Set Col = WordTree.GetCodeNode(strSoundExCode) ' Get all words with this code
         If Col Is Nothing Then
@@ -458,7 +458,7 @@ On Error GoTo ErrHandler
         ListAlternates = True
         Exit Function
     End If
-    strSoundExCode = SoundEx(sWord) ' Generate the code for the word
+    strSoundExCode = Soundex(sWord) ' Generate the code for the word
     If Len(strSoundExCode) > 0 Then
         Set Col = WordTree.GetCodeNode(strSoundExCode) ' Get all words with this code
         
@@ -525,7 +525,7 @@ Public Function AddItem(strWord As String, bShowMessage As Boolean) As Boolean
     Dim i As Long
     
     AddItem = True
-    strSoundExCode = SoundEx(strWord)
+    strSoundExCode = Soundex(strWord)
     On Error Resume Next
     Set WordCollection = WordTree.Root.Item(strSoundExCode)
     If Err = 0 Then
@@ -550,7 +550,7 @@ End Sub
 Private Sub cmdIgnoreAll_Click()
     '// add for this session only
     Dim strSoundExCode As String
-    strSoundExCode = SoundEx(txtWord)
+    strSoundExCode = Soundex(txtWord)
     If Len(strSoundExCode) > 0 Then
         WordTree.Add strSoundExCode, txtWord
     End If

@@ -594,7 +594,7 @@ Dim sngOS As Single
     End If
     'Load Application Settings
     LoadAppSettings
-    If gAccount.Current = -1 Then 'No Account
+    If gAccount.Current = -1 Or gAccount.User = "" Then 'No Account
         frmAccountWiz.Show vbModal
     ElseIf Not gAccount.SavePassword Then 'User Autentication
         frmLogin.Show vbModal
@@ -982,7 +982,7 @@ Dim strReg As String
     strReg = "Accounts/a" & Format(strAccount, "00")
     'Account Info
     Call objXMLReg.SaveSetting(App.Title, strReg, "Deleted", "1")
-    Call objXMLReg.SaveSetting(App.Title, strReg, "User", "ï¿½Deletedï¿½")
+    Call objXMLReg.SaveSetting(App.Title, strReg, "User", "»Deleted«")
     Call objXMLReg.SaveSetting(App.Title, strReg, "ID", "")
     Call objXMLReg.SaveSetting(App.Title, strReg, "Alias", "")
     Call objXMLReg.SaveSetting(App.Title, strReg, "Password", "")
@@ -1505,7 +1505,7 @@ Function ConvertHTMLEntities(ByVal sString As String, ByVal toHTML As Boolean) A
 Dim sChars As String
 Dim aHTML(110) As String
 Dim i As Integer
-    'Verificar parï¿½metros
+    'Verificar parâmetros
     sString = Trim(sString)
     
     If Len(sString) = 0 Then
@@ -1514,8 +1514,8 @@ Dim i As Integer
     End If
     
     'Preencher a string dos caracteres acentuados
-    sChars = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İŸï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" & _
-             "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+    sChars = "ÅÁÀÂÄÃÉÈËÊÍÌÏÎÓÒÖÔÕÚÙÜÛİŸÇÑåáàâäãéèëêíìïîóòöôõúùüûıÿçñ" & _
+             "ªº²³°§ß©®¥€µ×÷¶¼½¾‘’«»øØæÆğĞşŞ·—–“”…¿¡¢£¤±¬†‡ƒ‰Šš™Œœ•¯¸¹´"
     
     'Preencher o array correspondente
     aHTML(0) = "&Aring;"

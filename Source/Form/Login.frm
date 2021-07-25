@@ -250,6 +250,7 @@ On Error GoTo ErrorHandler
         If LoadBlogs(False) Then
             SaveAccount
             frmPost.Account = gAccount.Alias
+            LoadCategories False
         Else
             gAccount.User = ""
             gAccount.Password = ""

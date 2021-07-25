@@ -345,7 +345,7 @@ Attribute ResponseToVariant.VB_Description = "The response of the XML-RPC call c
     ' The response does not contain a <param> tag
     '
     '--added by Marcelo Cabral - 17/07/2002
-    DOMDocument.save gAppDataPath & "\lasterror.xml"
+    DOMDocument.Save gAppDataPath & "\lasterror.xml"
     '--
     Err.Raise vbObjectError + 512, , "The <param> element is missing."
         
@@ -358,7 +358,7 @@ Attribute ResponseToVariant.VB_Description = "The response of the XML-RPC call c
 
     If Value Is Nothing Then
       '--added by Marcelo Cabral - 17/07/2002
-      DOMDocument.save gAppDataPath & "\lasterror.xml"
+      DOMDocument.Save gAppDataPath & "\lasterror.xml"
       '--
       Err.Raise vbObjectError + 512, , "The <value> element of the <param> element is missing."
     Else
@@ -367,7 +367,6 @@ Attribute ResponseToVariant.VB_Description = "The response of the XML-RPC call c
       ' Parse the <value> element into a Variant
       '
       ParseValue Value, vResponse
-
     End If
 
   End If
@@ -523,7 +522,7 @@ Private Sub ParseFault(ByVal DOMDocument As DOMDocument)
 
     If FaultCode Is Nothing Or FaultString Is Nothing Then
       '--added by Marcelo Cabral - 17/07/2002
-      DOMDocument.save gAppDataPath & "\lasterror.xml"
+      DOMDocument.Save gAppDataPath & "\lasterror.xml"
       '--
       Err.Raise vbObjectError + 512, , "The <fault> element is invalid. The <faultCode> or <faultString> element is missing."
     Else
@@ -535,7 +534,7 @@ Private Sub ParseFault(ByVal DOMDocument As DOMDocument)
 
       If Value Is Nothing Then
         '--added by Marcelo Cabral - 17/07/2002
-        DOMDocument.save gAppDataPath & "\lasterror.xml"
+        DOMDocument.Save gAppDataPath & "\lasterror.xml"
         '--
         Err.Raise vbObjectError + 512, , "The <value> element of the <faultCode> element is missing."
       Else
@@ -549,7 +548,7 @@ Private Sub ParseFault(ByVal DOMDocument As DOMDocument)
 
       If Value Is Nothing Then
         '--added by Marcelo Cabral - 17/07/2002
-        DOMDocument.save gAppDataPath & "\lasterror.xml"
+        DOMDocument.Save gAppDataPath & "\lasterror.xml"
         '--
         Err.Raise vbObjectError + 512, , "The <value> element of the <faultString> element is missing."
       Else
@@ -561,7 +560,7 @@ Private Sub ParseFault(ByVal DOMDocument As DOMDocument)
       '
       '--changed by Marcelo Cabral - 17/07/2002
       If vCode <> "" Or sDescription <> "" Then
-        DOMDocument.save gAppDataPath & "\lasterror.xml"
+        DOMDocument.Save gAppDataPath & "\lasterror.xml"
         If IsNumeric(vCode) Then
             If vCode = 0 Then vCode = vbObjectError + 512
             Err.Raise vCode, , "Your blog server returned the following error message:" & vbCrLf & vbCrLf & _
