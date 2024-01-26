@@ -168,7 +168,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C744
+               _GridInfo       =   $"Post.frx":2C728
                Begin SizerOneLibCtl.ElasticOne ElasticOne2 
                   Height          =   735
                   Left            =   0
@@ -333,7 +333,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C7B3
+                  MouseIcon       =   "Post.frx":2C797
                End
                Begin wbloggar.HtmlEdit txtMore 
                   Height          =   1485
@@ -353,7 +353,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C7CF
+                  MouseIcon       =   "Post.frx":2C7B3
                End
             End
             Begin SizerOneLibCtl.ElasticOne pnlEditor 
@@ -410,7 +410,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C7EB
+               _GridInfo       =   $"Post.frx":2C7CF
                Begin VB.CommandButton cmdCategories 
                   Caption         =   "..."
                   Height          =   315
@@ -456,7 +456,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C85B
+                  MouseIcon       =   "Post.frx":2C83F
                End
             End
             Begin SHDocVwCtl.WebBrowser webPreview 
@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   ""
+               Location        =   "http:///"
             End
          End
          Begin VB.Label lblStatus 
@@ -546,7 +546,7 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   1
       Left            =   4020
-      Picture         =   "Post.frx":2C877
+      Picture         =   "Post.frx":2C85B
       Top             =   6000
       Width           =   240
    End
@@ -554,14 +554,14 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   0
       Left            =   3720
-      Picture         =   "Post.frx":2CE01
+      Picture         =   "Post.frx":2CDE5
       Top             =   6000
       Width           =   240
    End
    Begin VB.Image imgHand 
       Height          =   480
       Left            =   1440
-      Picture         =   "Post.frx":2D38B
+      Picture         =   "Post.frx":2D36F
       Top             =   5880
       Visible         =   0   'False
       Width           =   480
@@ -569,7 +569,7 @@ Begin VB.Form frmPost
    Begin VB.Image imgIcon16 
       Height          =   240
       Left            =   1140
-      Picture         =   "Post.frx":2D4E1
+      Picture         =   "Post.frx":2D4C5
       Top             =   5940
       Visible         =   0   'False
       Width           =   240
@@ -2024,13 +2024,13 @@ Dim strPreview As String, strTemp As String, strCSS As String
         End If
         'Replace Fix Space, Media Information and
         'Transform relative paths into full url's
-        strPost = Replace(strPost, "?", "&nbsp;")
+        strPost = Replace(strPost, Chr(183), "&nbsp;")
         strPost = ReplaceMediaInfo(strPost)
         strPost = Path2URL(strPost, " background=")
         strPost = Path2URL(strPost, " src=")
         strPost = Path2URL(strPost, " href=")
         If Trim(strMore) <> "" Then
-            strMore = Replace(strMore, "?", "&nbsp;")
+            strMore = Replace(strMore, Chr(183), "&nbsp;")
             strMore = ReplaceMediaInfo(strMore)
             strMore = Path2URL(strMore, " background=")
             strMore = Path2URL(strMore, " src=")
@@ -2309,7 +2309,7 @@ Dim strPlay As String
             acbMain.Tools("miPasteText").Enabled = (Clipboard.GetText <> "")
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         ElseIf TypeName(oControl) = "ComboBox" Then
-            'O Combo s? aceita Paste no Style = 0
+            'O Combo só aceita Paste no Style = 0
             acbMain.Tools("miUndo").Enabled = SendMessage(oControl.hwnd, EM_CANUNDO, 0, ByVal 0&)
             acbMain.Tools("miCopy").Enabled = (oControl.Text <> "")
             If (oControl.Style = 0) Then
@@ -2319,7 +2319,7 @@ Dim strPlay As String
             End If
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         Else
-            ' o controle n?o aceita Cut/Copy/Paste
+            ' o controle não aceita Cut/Copy/Paste
             acbMain.Tools("miUndo").Enabled = False
             acbMain.Tools("miCopy").Enabled = False
             acbMain.Tools("miCut").Enabled = False
@@ -2931,7 +2931,7 @@ Dim i As Integer
     txtKeywords.tag = GetLbl(lblKeywords) & ":"
     cmdMore.Caption = GetLbl(lblAdvanced)
     With acbMain.Bands("bndPopCustom")
-        .Tools("miCustomF1").Caption = "? " & GetLbl(lblClickToEdit) & " ?"
+        .Tools("miCustomF1").Caption = Chr(171) & " " & GetLbl(lblClickToEdit) & " " & Chr(187)
         For i = 2 To 12
             .Tools("miCustomF" & i).Caption = .Tools("miCustomF1").Caption
         Next
