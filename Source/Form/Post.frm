@@ -168,7 +168,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C744
+               _GridInfo       =   $"Post.frx":2C9A8
                Begin SizerOneLibCtl.ElasticOne ElasticOne2 
                   Height          =   735
                   Left            =   0
@@ -333,7 +333,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C7B3
+                  MouseIcon       =   "Post.frx":2CA17
                End
                Begin wbloggar.HtmlEdit txtMore 
                   Height          =   1485
@@ -353,7 +353,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C7CF
+                  MouseIcon       =   "Post.frx":2CA33
                End
             End
             Begin SizerOneLibCtl.ElasticOne pnlEditor 
@@ -410,7 +410,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C7EB
+               _GridInfo       =   $"Post.frx":2CA4F
                Begin VB.CommandButton cmdCategories 
                   Caption         =   "..."
                   Height          =   315
@@ -456,7 +456,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C85B
+                  MouseIcon       =   "Post.frx":2CABF
                End
             End
             Begin SHDocVwCtl.WebBrowser webPreview 
@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   ""
+               Location        =   "http:///"
             End
          End
          Begin VB.Label lblStatus 
@@ -546,7 +546,7 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   1
       Left            =   4020
-      Picture         =   "Post.frx":2C877
+      Picture         =   "Post.frx":2CADB
       Top             =   6000
       Width           =   240
    End
@@ -554,14 +554,14 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   0
       Left            =   3720
-      Picture         =   "Post.frx":2CE01
+      Picture         =   "Post.frx":2D065
       Top             =   6000
       Width           =   240
    End
    Begin VB.Image imgHand 
       Height          =   480
       Left            =   1440
-      Picture         =   "Post.frx":2D38B
+      Picture         =   "Post.frx":2D5EF
       Top             =   5880
       Visible         =   0   'False
       Width           =   480
@@ -569,7 +569,7 @@ Begin VB.Form frmPost
    Begin VB.Image imgIcon16 
       Height          =   240
       Left            =   1140
-      Picture         =   "Post.frx":2D4E1
+      Picture         =   "Post.frx":2D745
       Top             =   5940
       Visible         =   0   'False
       Width           =   240
@@ -1381,7 +1381,7 @@ Dim strExcerpt As String, strKeywords As String
         OpenPost
     Case "miImportText"
         ImportText
-    Case "miFMRU1", "miFMRU2", "miFMRU3", "miFMRU4"
+    Case "miFMRU1", "miFMRU2", "miFMRU3", "miFMRU4", "miFMRU5", "miFMRU6", "miFMRU7", "miFMRU8", "miFMRU9", "miFMRU10"
         If Not CanContinue() Then Exit Sub
         Call LoadPostFile(objMRU.file(Tool.TagVariant))
     Case "miSave"
@@ -1751,15 +1751,15 @@ Dim strExcerpt As String, strKeywords As String
                 DeletePost gPostID, (Tool.Name = "miDelPublish"), gSettings.Silent
             End If
         End If
-    Case "miHelp"
-        ' Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
+    Case "miFAQ"
         OpenWebPage "http://web.archive.org/web/20090330164700if_/http://wbloggar.com/faq.php"
         Exit Sub
-    Case "miWebPage"
+    Case "miHelp", "miWebPage"
+        ' Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
         OpenWebPage "https://github.com/lvcabral/w.bloggar"
         Exit Sub
     Case "miDonate"
-        OpenWebPage "https://www.paypal.com/xclick/business=paypal%40wbloggar.com&item_name=w.bloggar&item_number=1"
+        OpenWebPage "https://paypal.me/lvcabral"
         Exit Sub
     Case "miLicense"
         OpenDocument App.Path & "\License.txt"
@@ -1886,7 +1886,7 @@ Dim objTool As Tool
     'Load Most Recent Updated Files
     Set objMRU = New clsMRUFileList
     objMRU.Load
-    objMRU.MaxFileCount = 4
+    objMRU.MaxFileCount = 10
     DisplayMRU
     'Initialize Music String
     strMusic = "*"
@@ -2024,13 +2024,13 @@ Dim strPreview As String, strTemp As String, strCSS As String
         End If
         'Replace Fix Space, Media Information and
         'Transform relative paths into full url's
-        strPost = Replace(strPost, "?", "&nbsp;")
+        strPost = Replace(strPost, Chr(183), "&nbsp;")
         strPost = ReplaceMediaInfo(strPost)
         strPost = Path2URL(strPost, " background=")
         strPost = Path2URL(strPost, " src=")
         strPost = Path2URL(strPost, " href=")
         If Trim(strMore) <> "" Then
-            strMore = Replace(strMore, "?", "&nbsp;")
+            strMore = Replace(strMore, Chr(183), "&nbsp;")
             strMore = ReplaceMediaInfo(strMore)
             strMore = Path2URL(strMore, " background=")
             strMore = Path2URL(strMore, " src=")
@@ -2041,7 +2041,7 @@ Dim strPreview As String, strTemp As String, strCSS As String
             strCSS = gBlog.PreviewCSS
         End If
         'On post preview add head and body tags
-        strPreview = "<html><head><title>Bloggar Preview</title></head>" & vbCrLf & _
+        strPreview = "<html><head><title>Bloggar Preview</title></head><body>" & vbCrLf & _
                      strCSS & vbCrLf & gBlog.PreviewBody & vbCrLf & _
                      "<table " & gBlog.PreviewWidth & "><tr><td><div " & _
                      gBlog.PreviewAlign & " " & gBlog.PreviewStyle & ">" & vbCrLf & _
@@ -2309,7 +2309,7 @@ Dim strPlay As String
             acbMain.Tools("miPasteText").Enabled = (Clipboard.GetText <> "")
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         ElseIf TypeName(oControl) = "ComboBox" Then
-            'O Combo s? aceita Paste no Style = 0
+            'O Combo só aceita Paste no Style = 0
             acbMain.Tools("miUndo").Enabled = SendMessage(oControl.hwnd, EM_CANUNDO, 0, ByVal 0&)
             acbMain.Tools("miCopy").Enabled = (oControl.Text <> "")
             If (oControl.Style = 0) Then
@@ -2319,7 +2319,7 @@ Dim strPlay As String
             End If
             acbMain.Tools("miSelectAll").Enabled = (oControl.Text <> "")
         Else
-            ' o controle n?o aceita Cut/Copy/Paste
+            ' o controle não aceita Cut/Copy/Paste
             acbMain.Tools("miUndo").Enabled = False
             acbMain.Tools("miCopy").Enabled = False
             acbMain.Tools("miCut").Enabled = False
@@ -2548,6 +2548,7 @@ Dim strPost As String, strTitle As String, strFName As String
 End Sub
 
 Private Sub DisplayMRU()
+On Error Resume Next
 Dim iFile As Integer, iCount As Integer
     For iFile = 1 To objMRU.FileCount
         If (objMRU.FileExists(iFile)) Then
@@ -2562,7 +2563,6 @@ Dim iFile As Integer, iCount As Integer
             iCount = iCount + 1
         End If
     Next iFile
-    ' Debug.Print (objMRU.FileCount > 0)
     acbMain.Bands("bndPopFile").Tools("miFMRUSep").Visible = (iCount > 0)
 End Sub
 
@@ -2931,7 +2931,7 @@ Dim i As Integer
     txtKeywords.tag = GetLbl(lblKeywords) & ":"
     cmdMore.Caption = GetLbl(lblAdvanced)
     With acbMain.Bands("bndPopCustom")
-        .Tools("miCustomF1").Caption = "? " & GetLbl(lblClickToEdit) & " ?"
+        .Tools("miCustomF1").Caption = Chr(171) & " " & GetLbl(lblClickToEdit) & " " & Chr(187)
         For i = 2 To 12
             .Tools("miCustomF" & i).Caption = .Tools("miCustomF1").Caption
         Next

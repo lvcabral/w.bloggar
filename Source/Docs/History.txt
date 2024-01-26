@@ -2,6 +2,13 @@ Software....: w.bloggar - Universal XML-RPC Weblog Interface
 File........: wbloggar.exe
 Document....: Log of changes and improvements
 
+*** Release v4.06.0210 *** 25-Jan-2024 *** More Improvements and Bug Fixes
+ADDED....: Shortcut for "Save as..." is Ctrl+Shift+S
+CHANGED..: Increased number of recent files from 4 to 10
+CHANGED..: Default WordPress connection to HTTPS (port 443)
+FIXED....: The question mark on titles was not being displayed on preview
+FIXED....: The preview HTML template was missing the <body> opening tag
+
 *** Release v4.05.0209 *** 25-Jul-2021 *** Category Improvements and Bug Fixes
 CHANGED..: Categories window is resizeable and now shows 3 columns of items
 CHANGED..: Add Link window now shows https:// as default option
@@ -26,9 +33,9 @@ ADDED....: Support to be used as a portable application, with no need to install
            to be stored on a usb pen drive;
 
 *** Release v4.02.0197 *** 28-Oct-2007 *** Version 4.02
-ADDED....: Support to new CMS tool: BlogEngine.NET;           
-ADDED....: Support to Upload images and files using API with: Wordpress, 
-           MovableType, TypePad, Drupal, b2evolution, Nucleus CMS, Squarespace, 
+ADDED....: Support to new CMS tool: BlogEngine.NET;
+ADDED....: Support to Upload images and files using API with: Wordpress,
+           MovableType, TypePad, Drupal, b2evolution, Nucleus CMS, Squarespace,
            Community Server and BlogEngine.NET;
 ADDED....: Option to select UTF-8 during the Add Account wizard;
 CHANGED..: Link to download Media Player plugin now opens w.bloggar download page;
@@ -42,23 +49,23 @@ CORRECTED: Several API bugs and omissions were fixed;
 ADDED....: Support to page code UTF-8 (Unicode) to send and get posts and categories;
 ADDED....: Support to new CMS tool: Community Server;
 CHANGED..: Updated Drupal features support;
-CORRECTED: Update Blogger API server and downgraded the API to 1.0; 
-CORRECTED: Preview ignore CSS field when was not changed by the user; 
+CORRECTED: Update Blogger API server and downgraded the API to 1.0;
+CORRECTED: Preview ignore CSS field when was not changed by the user;
 CORRECTED: Loading posts now correctly uses the custom CMS tags;
 
-*** Release v4.00.0193 *** 21-Mar-2006 *** 
+*** Release v4.00.0193 *** 21-Mar-2006 ***
 ADDED....: Support to new blog service: MSN Spaces;
 ADDED....: New Languages: Spanish, French (Canada) and Russian;
 ADDED....: Button to import the xml file with the saved settings and
            accounts directly from the "Add Account" wizard;
-CHANGED..: The save post option now suggests the post title (when exists) 
+CHANGED..: The save post option now suggests the post title (when exists)
            as the .post file name;
 CORRECTED: Error "Invalid Tools Collection Index" during start up;
 CORRECTED: Error "Invalid Property Value" after selecting posts;
 
-*** Release v4.00.0191 *** 11-Jan-2005 *** 
+*** Release v4.00.0191 *** 11-Jan-2005 ***
 ADDED....: Support to DearDiary.Net
-ADDED....: German (Germany) language 
+ADDED....: German (Germany) language
 CORRECTED: Fixed editing post problems with TypePad;
 CORRECTED: Added workaround to a WordPress 1.2.2 issue;
 
@@ -68,12 +75,12 @@ ADDED....: Support to the advanced MovableType options: Extended Entry,
 ADDED....: Support to Multiple Categories to blogs that uses metaWeblog API;
 ADDED....: New "Add Account" wizard to make easier setup new accounts;
 ADDED....: Ordered and Bullet List options to the HTML menu and toolbar;
-ADDED....: New supported tools: Nucleus 3.0, Wordpress, SquareSpace, b2evolution, 
+ADDED....: New supported tools: Nucleus 3.0, Wordpress, SquareSpace, b2evolution,
            Blog:CMS, UBlog, .Text, BlogWare and Xaraya;
 ADDED....: Option to toggle the XHTML compliance to the tags;
 ADDED....: Option to change the interface language;
 ADDED....: New option to allow user to set the toolbar Blog List size;
-ADDED....: Now is possible to ping not only Weblogs.com but Technorati, blo.gs 
+ADDED....: Now is possible to ping not only Weblogs.com but Technorati, blo.gs
            and ping-o-matic when a post is published;
 ADDED....: Pasting a formatted text is now converted to HTML tags;
 ADDED....: A new option at Edit menu to allow Paste as Plain Text;
@@ -85,20 +92,20 @@ ADDED....: New Paragraph option on HTML menu and toolbar;
 CHANGED..: The .post files are now stored on a xml format;
 CHANGED..: The concept of a single default draft file is not used anymore,
            now you can save to multiple .post files;
-CHANGED..: The Settings window was split in two: Options (with general app 
+CHANGED..: The Settings window was split in two: Options (with general app
            settings) and Blog Properties (with blog settings)
-CHANGED..: The *.xml and *.chg files are now stored at the user�s 
+CHANGED..: The *.xml and *.chg files are now stored at the user�s
            Application Data folder;
-CHANGED..: The HTTPS option at Account Properties now changes the 
+CHANGED..: The HTTPS option at Account Properties now changes the
            default port to 443 when checked and 80 when unchecked;
-CHANGED..: The tray icon now is always visible if the "Minimize to Tray" 
+CHANGED..: The tray icon now is always visible if the "Minimize to Tray"
            option is selected;
-CHANGED..: Now any option that would change the edit area will show up a 
+CHANGED..: Now any option that would change the edit area will show up a
            message box to ask if you want to save the current post;
 CHANGED..: The Recent Posts window now can be resized and maximized and it�s
            position and size are now saved;
 CHANGED..: The list at the Recent Posts window now displays the Title of posts
-           (when available) instead of the date/time; 
+           (when available) instead of the date/time;
 CHANGED..: All Accounts and Settings are no longer stored on Windows Registry,
            now it's saved on a xml file;
 CHANGED..: More Text and Preview options moved from Tools menu to View menu;
@@ -117,14 +124,14 @@ CORRECTED: Some minor bugs and interface enhancements.
 
 *** Release v3.03.0165 *** 16-Dec-2003 *** Version 3.03
 ADDED....: A Preview menu option to make clear to the user the [F12] shortcut;
-ADDED....: A More Text menu option to make easy to add the special tags to the 
+ADDED....: A More Text menu option to make easy to add the special tags to the
            extended text field on blogs that support it, the shortcut is [F4];
 ADDED....: Three new supported tools: pMachine, TypePad and YACS;
 CHANGED..: Updated the Blog-City settings to the current API Server location.
 CORRECTED: Now the text between the More Text special tags is also converted
            when the "Auto-Convert Extended Characters" option is marked at
            settings window avoiding xml parser errors;
-CORRECTED: Updated the special characters and symbols conversion table 
+CORRECTED: Updated the special characters and symbols conversion table
            to avoid errors on blog tools xml parser;
 CORRECTED: Now w.bloggar handles correctly the Category array on posts
            using metaWeblog API.
@@ -133,14 +140,14 @@ CORRECTED: Problem with Windows XP that was not opening a .post
 CORRECTED: Some settings were not being correctly saved/restored
            to/from the Windows Registry.
 
-*** Release v3.02.0158 *** 12-Jul-2003 *** 
-CHANGED..: Call a .post file using Explorer (or Shell Execute) when 
-           w.bloggar is already running now activate it and also 
+*** Release v3.02.0158 *** 12-Jul-2003 ***
+CHANGED..: Call a .post file using Explorer (or Shell Execute) when
+           w.bloggar is already running now activate it and also
            opens the file on Editor.
 CHANGED..: Category list is now sorted.
-CHANGED..: The Blogger GetPostsMethod at CMS.INI now uses API 2.0 to 
+CHANGED..: The Blogger GetPostsMethod at CMS.INI now uses API 2.0 to
            avoid encoding problems.
-CORRECTED: Title was not being retrieved when "Get Last Post" was 
+CORRECTED: Title was not being retrieved when "Get Last Post" was
            selected on Blogger Pro accounts.
 CORRECTED: Problems with Tab order on main window.
 
@@ -151,11 +158,11 @@ ADDED....: The [Ctrl+Tab] keys was configured as the shortcut to toggle Preview
            the same way as [F12] key;
 ADDED....: Four new types of Blog Tools/Services are now supported: Blojsom,
            RollerWeblogger, LiveJournal and Lotus Domino (with blog API)
-CHANGED..: Optimized the post process to MovableType blogs, to avoid 
+CHANGED..: Optimized the post process to MovableType blogs, to avoid
            publishing twice (internally) new posts with category.
-CHANGED..: Now is possible to clear the "Extended Entry" field on 
+CHANGED..: Now is possible to clear the "Extended Entry" field on
            MovableType blogs just leaving empty the special tags.
-CHANGED..: Now is possible to clear a Custom Tag entry, to do that just 
+CHANGED..: Now is possible to clear a Custom Tag entry, to do that just
            erase all fields.
 CHANGED..: Links and Images on Media String with relative paths
            now shows correctly on Preview.
@@ -167,7 +174,7 @@ CORRECTED: The URL list on Add Link windows was being saved duplicating
 CORRECTED: In some cases the category was not being selected on combo box
            when the user edits a post.
 CORRECTED: All B2 method entries on CMS.ini now changed to B2 API.
-CORRECTED: Blogalia GetPostsMethod entry on CMS.ini now changed to 
+CORRECTED: Blogalia GetPostsMethod entry on CMS.ini now changed to
            metaWeblog API to get title correctly on post edit.
 CORRECTED: Some minor bugs and interface enhancements.
 
@@ -184,16 +191,16 @@ ADDED....: New Media tab on Settings window with options to configure
 ADDED....: Icon on Status Bar indicating if there is a music playing on
            Windows Media Player and a click on this icon or pressing F11
            key will insert the Media Information on the post body
-ADDED....: Support to the "Extended Entry" field on MovableType blogs 
+ADDED....: Support to the "Extended Entry" field on MovableType blogs
            thru the special tags <more_text></moretext>
 ADDED....: New Custom tags to be accessed from Ctrl+F9 to Ctrl+F12 hotkeys
-ADDED....: An empty alt parameter now is was added to the tag <img src=...> 
+ADDED....: An empty alt parameter now is was added to the tag <img src=...>
            that is inserted by image Upload
 CHANGED..: Now the last blog used on an account is recorded and automatically
-           selected the next time that a login is made on that account 
+           selected the next time that a login is made on that account
 CHANGED..: Now both the Title and Category fields are resized proportionally
            when the main windows is resized, not only the title
-CHANGED..: Enhanced the Preview engine to better convert the server-root-relative 
+CHANGED..: Enhanced the Preview engine to better convert the server-root-relative
            image url's when the blog is hosted on a sub-folder
 CHANGED..: Added new symbols to the special characters conversion table
 CHANGED..: When the user is on Preview mode and opens the Setting window
@@ -206,7 +213,7 @@ CORRECTED: New verifications were added to the ParseValue routine to avoid the e
            XML-RPC parameters is returned empty by the server
 CORRECTED: Some minor bugs and interface enhancements
 
-*** Release v3.00.0139 *** 17-Nov-2002 *** 
+*** Release v3.00.0139 *** 17-Nov-2002 ***
 ADDED....: Support for translation to other languages;
 CHANGED..: The AboutBox button "System Info" now shows the Windows Locale ID
            and the w.bloggar Locale ID
@@ -221,10 +228,10 @@ CORRECTED: This file and the License file were not being installed
 
 *** Release v3.00.0132 *** 02-Nov-2002 *** Version 3.00
 ADDED....: Title and Category fields on blogs that supports these features
-ADDED....: Spell Checking 
+ADDED....: Spell Checking
 ADDED....: File and Image upload
 ADDED....: Custom Tags menu with ShortCut keys
-ADDED....: Support to MetaWeblog API, MovableType API and b2 API 
+ADDED....: Support to MetaWeblog API, MovableType API and b2 API
 ADDED....: Toolbar Icons Skin Configuration
 ADDED....: Font Color Button
 ADDED....: Option to disable MessageBox on successfull posting (Silent Post)
@@ -232,39 +239,39 @@ ADDED....: Option to Delete several posts on Recent Posts window
 ADDED....: Options to rename and delete accounts on Login Window
 ADDED....: Support to the Windows XP appearance and controls
 ADDED....: Two new Help menu options, a link to the FAQ and another to donations;
-ADDED....: New field on Add Link window to type the text that will be placed 
+ADDED....: New field on Add Link window to type the text that will be placed
            between the tags <a href=...> and </a>
 ADDED....: New field on Add Image window to set the border width;
 ADDED....: Option to set the post width on Preview
-ADDED....: When the user clicks to open a Template will get an alert box if there 
+ADDED....: When the user clicks to open a Template will get an alert box if there
            are any non-saved changes on the current editing text;
 ADDED....: Treatment to the Tab key during post edit, and a new option on Settings
            window to set how many spaces the key will add;
 ADDED....: The file extension .post is associated with w.bloggar;
 ADDED....: Is possible to choose the file that saves the draft post;
 ADDED....: Is possible to choose the file with a default post;
-ADDED....: An option to uninstall all settings saved on windows registry. 
-           To activate just pass the command line parameter "-uninstall". 
+ADDED....: An option to uninstall all settings saved on windows registry.
+           To activate just pass the command line parameter "-uninstall".
            This option is auto-runned on w.bloggar uninstallation;
 ADDED....: Implemented the Save & Publish template button to Blogger.com accounts;
-ADDED....: Created a button/menu option to insert the "Blockquote" tag with the 
+ADDED....: Created a button/menu option to insert the "Blockquote" tag with the
            shortcut key set to [Ctrl+J];
 CHANGED..: The Auto conversion of special chars into HTML entities
            now is made in background, no more conversion as you type
 CHANGED..: The Account configuration now has a list of supported
            blog tools/services to make the setup easier
 CHANGED..: The context menu on Editor now has formatting options
-CHANGED..: The "Reload Blog List" and "Ping Weblogs" options were moved from 
+CHANGED..: The "Reload Blog List" and "Ping Weblogs" options were moved from
            "Settings" window to the new "Account Properties" window
-CHANGED..: Implemented a test to avoid several instances of w.bloggar 
+CHANGED..: Implemented a test to avoid several instances of w.bloggar
            loaded on memory
 CHANGED..: The blog list now is reloaded every time you change the
            current account
-CHANGED..: The "System Info" button on About Box now shows the OS, IE and 
+CHANGED..: The "System Info" button on About Box now shows the OS, IE and
            XML parser versions
 CHANGED..: Now the Account alias and icon is shown on Status bar instead of
-           User Name. The click on this panel loads "Account Properties" window 
-CHANGED..: The proxy server configuration now has 3 options, no proxy, use Internet 
+           User Name. The click on this panel loads "Account Properties" window
+CHANGED..: The proxy server configuration now has 3 options, no proxy, use Internet
            Explorer proxy settings or custom proxy settings
 CHANGED..: The toolbars now can be moved to the bottom of the main window and the
            HTML toolbar can also float and can be docked on both sides;
@@ -297,10 +304,10 @@ ADDED....: Option to automatically convert symbols and extended
 ADDED....: Support to a file name passed on command line. The file
            is opened on Code Editor
 CHANGED..: On Links inclusion window the text "http://" now appears
-           selected when the window opens, making easy the 
+           selected when the window opens, making easy the
            URL copy/paste operation
-CHANGED..: Now the most used ComboBox itens (Links, Images, 
-           Classes...) are always moved to the top of the options 
+CHANGED..: Now the most used ComboBox itens (Links, Images,
+           Classes...) are always moved to the top of the options
            list, avoiding their exclusion
 CORRECTED: The way the PostID is handled on this release is totally
            compatible with the API definition and now accepts unique
@@ -315,7 +322,7 @@ CORRECTED: Implemented a workaround to the java.lang.nullPointerException
 CORRECTED: Some minor bugs and inteface enhancements
 
 *** Release v2.00.0063 *** 29-Mar-2002 *** Version 2.00
-ADDED....: Credits to the translator on AboutBox 
+ADDED....: Credits to the translator on AboutBox
 CHANGED..: Now the first startup is much faster
 CHANGED..: All URL's now opens on a new IE window
 CHANGED..: Some common HTML error messages can be translated now
@@ -326,7 +333,7 @@ CORRECTED: Some minor bugs and inteface enhancements
 ADDED....: Ping to Weblogs.Com
 CHANGED..: Improved the connection error handling
 CORRECTED: Some minor bugs and inteface enhancements
-CORRECTED: Run-time error '5' (Invalid procedure call or argument) 
+CORRECTED: Run-time error '5' (Invalid procedure call or argument)
            on first start up.
 
 *** Release v2.00.0053 *** 11-Mar-/2002 *** Beta 1
@@ -353,7 +360,7 @@ CHANGED..: Connection settings now has separated window
 CHANGED..: Only Blog Admin users can access Template button
 CHANGED..: The post author name now appears on Recent Posts window
 CHANGED..: Post info trasfered from StatusBar to a big label above editor
-CHANGED..: Doubleclick on a post in Recent Posts window open it 
+CHANGED..: Doubleclick on a post in Recent Posts window open it
 CHANGED..: Using now Ghost Setup a freeware smaller and better
 CORRECTED: Option to open w.bloggar page on help menu now opens correctly
 

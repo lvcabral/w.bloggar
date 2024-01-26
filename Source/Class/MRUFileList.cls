@@ -55,8 +55,13 @@ Public Property Get MenuCaption(ByVal iIndex As Long) As String
 Dim sOut As String
 
     sOut = CompressFileName(m_sFiles(iIndex))
-    MenuCaption = "&" & iIndex & "  " & sOut
-    
+    If (iIndex < 10) Then
+        MenuCaption = "&" & iIndex & "  " & sOut
+    ElseIf (iIndex = 10) Then
+        MenuCaption = "1&0" & "  " & sOut
+    Else
+        MenuCaption = iIndex & "  " & sOut
+    End If
 End Property
 
 Public Function CompressFileName(ByVal sFileName As String) As String
