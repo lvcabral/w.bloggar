@@ -2041,7 +2041,7 @@ Dim strPreview As String, strTemp As String, strCSS As String
             strCSS = gBlog.PreviewCSS
         End If
         'On post preview add head and body tags
-        strPreview = "<html><head><title>Bloggar Preview</title></head>" & vbCrLf & _
+        strPreview = "<html><head><title>Bloggar Preview</title></head><body>" & vbCrLf & _
                      strCSS & vbCrLf & gBlog.PreviewBody & vbCrLf & _
                      "<table " & gBlog.PreviewWidth & "><tr><td><div " & _
                      gBlog.PreviewAlign & " " & gBlog.PreviewStyle & ">" & vbCrLf & _

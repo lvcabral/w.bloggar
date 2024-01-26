@@ -7,6 +7,7 @@ ADDED....: Shortcut for "Save as..." is Ctrl+Shift+S
 CHANGED..: Increased number of recent files from 4 to 10
 CHANGED..: Default WordPress connection to HTTPS (port 443)
 FIXED....: The question mark on titles was not being displayed on preview
+FIXED....: The preview HTML template was missing the <body> opening tag
 
 *** Release v4.05.0209 *** 25-Jul-2021 *** Category Improvements and Bug Fixes
 CHANGED..: Categories window is resizeable and now shows 3 columns of items
