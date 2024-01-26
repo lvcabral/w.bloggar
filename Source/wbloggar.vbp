@@ -68,14 +68,14 @@ HelpContextID="0"
 Description="w.bloggar - Universal Weblog Interface"
 CompatibleMode="0"
 MajorVer=4
-MinorVer=5
+MinorVer=6
 RevisionVer=210
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="The best interface between you and your blog."
 VersionCompanyName="RainDrops Freeware Project"
 VersionFileDescription="w.bloggar - Universal Weblog Interface"
-VersionLegalCopyright="© 2001-2021 Marcelo Lv Cabral"
+VersionLegalCopyright="© 2001-2024 Marcelo Lv Cabral"
 VersionLegalTrademarks="https://github.com/lvcabral/w.bloggar"
 VersionProductName="w.bloggar"
 CondComp="compIE = -1"

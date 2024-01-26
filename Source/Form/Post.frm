@@ -168,7 +168,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C728
+               _GridInfo       =   $"Post.frx":2C9A8
                Begin SizerOneLibCtl.ElasticOne ElasticOne2 
                   Height          =   735
                   Left            =   0
@@ -333,7 +333,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C797
+                  MouseIcon       =   "Post.frx":2CA17
                End
                Begin wbloggar.HtmlEdit txtMore 
                   Height          =   1485
@@ -353,7 +353,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C7B3
+                  MouseIcon       =   "Post.frx":2CA33
                End
             End
             Begin SizerOneLibCtl.ElasticOne pnlEditor 
@@ -410,7 +410,7 @@ Begin VB.Form frmPost
                FrameColor      =   -2147483628
                FrameShadow     =   -2147483632
                FloodStyle      =   1
-               _GridInfo       =   $"Post.frx":2C7CF
+               _GridInfo       =   $"Post.frx":2CA4F
                Begin VB.CommandButton cmdCategories 
                   Caption         =   "..."
                   Height          =   315
@@ -456,7 +456,7 @@ Begin VB.Form frmPost
                      Italic          =   0   'False
                      Strikethrough   =   0   'False
                   EndProperty
-                  MouseIcon       =   "Post.frx":2C83F
+                  MouseIcon       =   "Post.frx":2CABF
                End
             End
             Begin SHDocVwCtl.WebBrowser webPreview 
@@ -546,7 +546,7 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   1
       Left            =   4020
-      Picture         =   "Post.frx":2C85B
+      Picture         =   "Post.frx":2CADB
       Top             =   6000
       Width           =   240
    End
@@ -554,14 +554,14 @@ Begin VB.Form frmPost
       Height          =   240
       Index           =   0
       Left            =   3720
-      Picture         =   "Post.frx":2CDE5
+      Picture         =   "Post.frx":2D065
       Top             =   6000
       Width           =   240
    End
    Begin VB.Image imgHand 
       Height          =   480
       Left            =   1440
-      Picture         =   "Post.frx":2D36F
+      Picture         =   "Post.frx":2D5EF
       Top             =   5880
       Visible         =   0   'False
       Width           =   480
@@ -569,7 +569,7 @@ Begin VB.Form frmPost
    Begin VB.Image imgIcon16 
       Height          =   240
       Left            =   1140
-      Picture         =   "Post.frx":2D4C5
+      Picture         =   "Post.frx":2D745
       Top             =   5940
       Visible         =   0   'False
       Width           =   240
@@ -1381,7 +1381,7 @@ Dim strExcerpt As String, strKeywords As String
         OpenPost
     Case "miImportText"
         ImportText
-    Case "miFMRU1", "miFMRU2", "miFMRU3", "miFMRU4"
+    Case "miFMRU1", "miFMRU2", "miFMRU3", "miFMRU4", "miFMRU5", "miFMRU6", "miFMRU7", "miFMRU8", "miFMRU9", "miFMRU10"
         If Not CanContinue() Then Exit Sub
         Call LoadPostFile(objMRU.file(Tool.TagVariant))
     Case "miSave"
@@ -1751,15 +1751,15 @@ Dim strExcerpt As String, strKeywords As String
                 DeletePost gPostID, (Tool.Name = "miDelPublish"), gSettings.Silent
             End If
         End If
-    Case "miHelp"
-        ' Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
+    Case "miFAQ"
         OpenWebPage "http://web.archive.org/web/20090330164700if_/http://wbloggar.com/faq.php"
         Exit Sub
-    Case "miWebPage"
+    Case "miHelp", "miWebPage"
+        ' Call ShellExecute(Me.hwnd, "open", App.Path & "\wbloggar.chm", vbNullString, CurDir$, SW_SHOW)
         OpenWebPage "https://github.com/lvcabral/w.bloggar"
         Exit Sub
     Case "miDonate"
-        OpenWebPage "https://www.paypal.com/xclick/business=paypal%40wbloggar.com&item_name=w.bloggar&item_number=1"
+        OpenWebPage "https://paypal.me/lvcabral"
         Exit Sub
     Case "miLicense"
         OpenDocument App.Path & "\License.txt"
@@ -1886,7 +1886,7 @@ Dim objTool As Tool
     'Load Most Recent Updated Files
     Set objMRU = New clsMRUFileList
     objMRU.Load
-    objMRU.MaxFileCount = 4
+    objMRU.MaxFileCount = 10
     DisplayMRU
     'Initialize Music String
     strMusic = "*"
@@ -2548,6 +2548,7 @@ Dim strPost As String, strTitle As String, strFName As String
 End Sub
 
 Private Sub DisplayMRU()
+On Error Resume Next
 Dim iFile As Integer, iCount As Integer
     For iFile = 1 To objMRU.FileCount
         If (objMRU.FileExists(iFile)) Then
@@ -2562,7 +2563,6 @@ Dim iFile As Integer, iCount As Integer
             iCount = iCount + 1
         End If
     Next iFile
-    ' Debug.Print (objMRU.FileCount > 0)
     acbMain.Bands("bndPopFile").Tools("miFMRUSep").Visible = (iCount > 0)
 End Sub
 
