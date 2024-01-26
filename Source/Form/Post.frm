@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   "http:///"
+               Location        =   ""
             End
          End
          Begin VB.Label lblStatus 
@@ -2041,8 +2041,13 @@ Dim strPreview As String, strTemp As String, strCSS As String
             strCSS = gBlog.PreviewCSS
         End If
         'On post preview add head and body tags
-        strPreview = "<html><head><title>Bloggar Preview</title></head><body>" & vbCrLf & _
-                     strCSS & vbCrLf & gBlog.PreviewBody & vbCrLf & _
+        Dim strBody As String
+        strBody = gBlog.previewBody
+        If Trim(strBody) = "" Then
+            previewBody = "<body>"
+        End If
+        strPreview = "<html><head><title>Bloggar Preview</title>" & vbCrLf & _
+                     strCSS & vbCrLf & "</head>" & vbCrLf & strBody & vbCrLf & _
                      "<table " & gBlog.PreviewWidth & "><tr><td><div " & _
                      gBlog.PreviewAlign & " " & gBlog.PreviewStyle & ">" & vbCrLf & _
                      "%WBTEXT%</div></td></tr></table></body></html>"
@@ -2081,7 +2086,9 @@ Dim lngStart As Long, lngPos As Long
     lngPos = InStr(lngStart, strText, strFind, vbTextCompare)
     Do Until lngPos = 0
         If LCase(Mid(strText, lngPos, Len(strFind) + 8)) <> strFind & """http://" And _
-           LCase(Mid(strText, lngPos, Len(strFind) + 7)) <> strFind & "http://" Then
+           LCase(Mid(strText, lngPos, Len(strFind) + 7)) <> strFind & "http://" And _
+           LCase(Mid(strText, lngPos, Len(strFind) + 9)) <> strFind & """https://" And _
+           LCase(Mid(strText, lngPos, Len(strFind) + 8)) <> strFind & "https://" Then
             'Convert the relative Path to a complete URL
             If Mid(strText, lngPos + Len(strFind), 1) = """" Then
                 If LCase(Mid(strText, lngPos, Len(strFind) + 2)) <> strFind & """/" Then

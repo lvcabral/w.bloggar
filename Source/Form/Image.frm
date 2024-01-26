@@ -249,7 +249,7 @@ End Sub
 Private Sub cmdButton_Click(Index As Integer)
 Dim i As Integer
     If Index = 0 Then
-        If Trim(cboImage.Text) = "" Or Trim(cboImage.Text) = "http://" Then
+        If Trim(cboImage.Text) = "" Or Trim(cboImage.Text) = "http://" Or Trim(cboImage.Text) = "https://" Then
             MsgBox GetMsg(msgEnterImage), vbInformation
             cboImage.SetFocus
             cboImage.SelStart = Len(cboImage.Text)
