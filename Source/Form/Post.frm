@@ -482,7 +482,7 @@ Begin VB.Form frmPost
                NoFolders       =   0   'False
                Transparent     =   0   'False
                ViewID          =   "{0057D0E0-3573-11CF-AE69-08002B2E1262}"
-               Location        =   "http:///"
+               Location        =   ""
             End
          End
          Begin VB.Label lblStatus 
@@ -581,7 +581,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '*    w.bloggar
-'*    Copyright (C) 2001-2019 Marcelo Lv Cabral <https://lvcabral.com>
+'*    Copyright (C) 2001-2024 Marcelo Lv Cabral <https://lvcabral.com>
 '*
 '*    This program is free software; you can redistribute it and/or modify
 '*    it under the terms of the GNU General Public License as published by
@@ -2041,8 +2041,13 @@ Dim strPreview As String, strTemp As String, strCSS As String
             strCSS = gBlog.PreviewCSS
         End If
         'On post preview add head and body tags
-        strPreview = "<html><head><title>Bloggar Preview</title></head><body>" & vbCrLf & _
-                     strCSS & vbCrLf & gBlog.PreviewBody & vbCrLf & _
+        Dim strBody As String
+        strBody = gBlog.PreviewBody
+        If Trim(strBody) = "" Then
+            strBody = "<body>"
+        End If
+        strPreview = "<html><head><title>Bloggar Preview</title>" & vbCrLf & _
+                     strCSS & vbCrLf & "</head>" & vbCrLf & strBody & vbCrLf & _
                      "<table " & gBlog.PreviewWidth & "><tr><td><div " & _
                      gBlog.PreviewAlign & " " & gBlog.PreviewStyle & ">" & vbCrLf & _
                      "%WBTEXT%</div></td></tr></table></body></html>"
@@ -2081,7 +2086,9 @@ Dim lngStart As Long, lngPos As Long
     lngPos = InStr(lngStart, strText, strFind, vbTextCompare)
     Do Until lngPos = 0
         If LCase(Mid(strText, lngPos, Len(strFind) + 8)) <> strFind & """http://" And _
-           LCase(Mid(strText, lngPos, Len(strFind) + 7)) <> strFind & "http://" Then
+           LCase(Mid(strText, lngPos, Len(strFind) + 7)) <> strFind & "http://" And _
+           LCase(Mid(strText, lngPos, Len(strFind) + 9)) <> strFind & """https://" And _
+           LCase(Mid(strText, lngPos, Len(strFind) + 8)) <> strFind & "https://" Then
             'Convert the relative Path to a complete URL
             If Mid(strText, lngPos + Len(strFind), 1) = """" Then
                 If LCase(Mid(strText, lngPos, Len(strFind) + 2)) <> strFind & """/" Then
@@ -2449,7 +2456,10 @@ Dim strPost As String, strTitle As String, strFName As String
                 End If
             End If
         Else 'New xml .post format
-            Call PostData.LoadData(strFile)
+            If Not PostData.LoadData(strPost, False) Then
+                MsgBox "Invalid Post File!", vbExclamation
+                Exit Sub
+            End If
             If PostData.BlogID <> "" And PostData.BlogID <> gBlogs(acbMain.Bands("bndTools").Tools("miBlogs").CBListIndex).BlogID Then
                 If MsgBox(GetMsg(msgPostFileWithID) & vbCrLf & GetMsg(msgLoadAsDraft), vbExclamation + vbYesNo) = vbYes Then
                     PostData.AccountID = -1
@@ -2464,7 +2474,11 @@ Dim strPost As String, strTitle As String, strFName As String
             End If
             If SupportsTitle() Then
                 If SupportsCategory() Then
+                    Dim strCategories As String
+                    'Save categories before clearing cboPostCat position
+                    strCategories = PostData.Categories
                     If cboPostCat.ListCount > 0 Then cboPostCat.ListIndex = 0
+                    PostData.Categories = strCategories
                     Select Case gAccount.GetPostsMethod
                     Case API_B2
                         If cboPostCat.ListCount > 1 Then

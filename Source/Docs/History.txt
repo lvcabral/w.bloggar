@@ -2,6 +2,12 @@ Software....: w.bloggar - Universal XML-RPC Weblog Interface
 File........: wbloggar.exe
 Document....: Log of changes and improvements
 
+*** Release v4.07.0212 *** 26-Jan-2024 *** Fixed Images, Load Files and Categories
+FIXED....: Images with https protocol not showing on preview
+FIXED....: Categories being lost when loading post files
+FIXED....: Blog title with Unicode characters not properly rendered in some screens
+FIXED....: Post files with ASCII character 160 not being loaded
+
 *** Release v4.06.0210 *** 25-Jan-2024 *** More Improvements and Bug Fixes
 ADDED....: Shortcut for "Save as..." is Ctrl+Shift+S
 CHANGED..: Increased number of recent files from 4 to 10

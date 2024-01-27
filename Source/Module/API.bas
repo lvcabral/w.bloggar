@@ -64,7 +64,7 @@ Dim strBlogName As String
         Set DOMDocument = objClient.Execute(gAccount.Host, gAccount.Page, strMethod, _
                                             APPKEY, gAccount.User, gAccount.Password)
     End If
-    
+
     objClient.ResponseToVariant DOMDocument, varResponse
     If VarType(varResponse) = vbArray + vbVariant Then
         varStruct = varResponse
@@ -76,14 +76,13 @@ Dim strBlogName As String
             Set objBlog = varStruct(b)
             strBlogName = objBlog.Member("blogName").Value
             If gAccount.UTF8 Then
-                frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem UTF8_Decode(strBlogName)
-            Else
-                frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem strBlogName
+                strBlogName = UTF8_Decode(strBlogName)
             End If
+            frmPost.acbMain.Bands("bndTools").Tools("miBlogs").CBList.AddItem strBlogName
             ReDim Preserve gBlogs(b)
             gBlogs(b).URL = objBlog.Member("url").Value
             gBlogs(b).BlogID = objBlog.Member("blogid").Value
-            gBlogs(b).Name = objBlog.Member("blogName").Value
+            gBlogs(b).Name = strBlogName
             On Error Resume Next 'New API
             gBlogs(b).IsAdmin = objBlog.Member("isAdmin").Value
             If Err <> 0 Then gBlogs(b).IsAdmin = True
@@ -155,14 +154,14 @@ Dim varResponse
     If gAccount.PostMethod = API_METAWEBLOG Or _
        gAccount.PostMethod = API_MT Then
         'Process Text
-        If gSettings.AutoConvert Then 'Conversão HTML
+        If gSettings.AutoConvert Then 'Conversï¿½o HTML
             strTitle = ConvertHTMLEntities(strTitle, True)
             strPost = ConvertHTMLEntities(strPost, True)
             strMore = ConvertHTMLEntities(strMore, True)
             strExcerpt = ConvertHTMLEntities(strExcerpt, True)
             strKeywords = ConvertHTMLEntities(strKeywords, True)
         End If
-        If gAccount.UTF8 Or gAccount.UTF8OnPost Then 'Conversão UTF-8
+        If gAccount.UTF8 Or gAccount.UTF8OnPost Then 'Conversï¿½o UTF-8
             strTitle = UTF8_Encode(strTitle)
             strPost = UTF8_Encode(strPost)
             strMore = UTF8_Encode(strMore)
