@@ -581,7 +581,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '*    w.bloggar
-'*    Copyright (C) 2001-2019 Marcelo Lv Cabral <https://lvcabral.com>
+'*    Copyright (C) 2001-2024 Marcelo Lv Cabral <https://lvcabral.com>
 '*
 '*    This program is free software; you can redistribute it and/or modify
 '*    it under the terms of the GNU General Public License as published by
@@ -2042,9 +2042,9 @@ Dim strPreview As String, strTemp As String, strCSS As String
         End If
         'On post preview add head and body tags
         Dim strBody As String
-        strBody = gBlog.previewBody
+        strBody = gBlog.PreviewBody
         If Trim(strBody) = "" Then
-            previewBody = "<body>"
+            strBody = "<body>"
         End If
         strPreview = "<html><head><title>Bloggar Preview</title>" & vbCrLf & _
                      strCSS & vbCrLf & "</head>" & vbCrLf & strBody & vbCrLf & _
@@ -2456,7 +2456,10 @@ Dim strPost As String, strTitle As String, strFName As String
                 End If
             End If
         Else 'New xml .post format
-            Call PostData.LoadData(strFile)
+            If Not PostData.LoadData(strPost, False) Then
+                MsgBox "Invalid Post File!", vbExclamation
+                Exit Sub
+            End If
             If PostData.BlogID <> "" And PostData.BlogID <> gBlogs(acbMain.Bands("bndTools").Tools("miBlogs").CBListIndex).BlogID Then
                 If MsgBox(GetMsg(msgPostFileWithID) & vbCrLf & GetMsg(msgLoadAsDraft), vbExclamation + vbYesNo) = vbYes Then
                     PostData.AccountID = -1

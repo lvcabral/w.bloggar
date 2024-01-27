@@ -12,7 +12,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 '*    w.bloggar
-'*    Copyright (C) 2001-2019 Marcelo Lv Cabral <https://lvcabral.com>
+'*    Copyright (C) 2001-2024 Marcelo Lv Cabral <https://lvcabral.com>
 '*
 '*    This program is free software; you can redistribute it and/or modify
 '*    it under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@ Private Sub Class_Initialize()
     AllowPings = -1
 End Sub
 
-Public Sub LoadData(ByVal strFilePath As String)
+Public Function LoadData(ByVal strData As String, ByVal bolFile As Boolean) As Boolean
 Dim vValue As Variant
 Dim DOMDocument As DOMDocument
 Dim Param As IXMLDOMNode
@@ -59,34 +59,37 @@ Dim Value As IXMLDOMNode
 Dim objPost As xmlStruct
 Dim vResponse
 On Error Resume Next
-    If FileExists(strFilePath) Then
-        Set DOMDocument = New DOMDocument
-        DOMDocument.Load strFilePath
-        '
-        ' Convert the response into a variant array
-        '
-        Set Param = DOMDocument.selectSingleNode(".//param")
-        If Param Is Nothing Then Exit Sub
-        Set Value = Param.selectSingleNode(".//value")
-        If Value Is Nothing Then Exit Sub
-        ParseValue Value, vResponse
-        Set objPost = vResponse
-        Me.AccountID = objPost.Member("accountID").Value
-        Me.BlogID = objPost.Member("blogID").Value
-        Me.PostID = objPost.Member("postID").Value
-        Me.Title = ConvertHTMLEntities(objPost.Member("textTitle").Value, False)
-        Me.Text = ConvertHTMLEntities(objPost.Member("textBody").Value, False)
-        Me.DateTime = objPost.Member("dateCreated").Value
-        Me.More = ConvertHTMLEntities(objPost.Member("textMore").Value, False)
-        Me.Excerpt = ConvertHTMLEntities(objPost.Member("excerpt").Value, False)
-        Me.Keywords = ConvertHTMLEntities(objPost.Member("keywords").Value, False)
-        Me.AllowComments = objPost.Member("allowComments").Value
-        Me.AllowPings = objPost.Member("allowPings").Value
-        Me.TextFilter = objPost.Member("textFilter").Value
-        Me.TrackBack = objPost.Member("trackBack").Value
-        Me.Categories = ConvertHTMLEntities(objPost.Member("categories").Value, False)
+    Set DOMDocument = New DOMDocument
+    If bolFile And FileExists(strData) Then
+        DOMDocument.Load strData
+    Else
+        DOMDocument.loadXML strData
     End If
-End Sub
+    '
+    ' Convert the response into a variant array
+    '
+    Set Param = DOMDocument.selectSingleNode(".//param")
+    If Param Is Nothing Then Exit Function
+    Set Value = Param.selectSingleNode(".//value")
+    If Value Is Nothing Then Exit Function
+    ParseValue Value, vResponse
+    Set objPost = vResponse
+    Me.AccountID = objPost.Member("accountID").Value
+    Me.BlogID = objPost.Member("blogID").Value
+    Me.PostID = objPost.Member("postID").Value
+    Me.Title = ConvertHTMLEntities(objPost.Member("textTitle").Value, False)
+    Me.Text = ConvertHTMLEntities(objPost.Member("textBody").Value, False)
+    Me.DateTime = objPost.Member("dateCreated").Value
+    Me.More = ConvertHTMLEntities(objPost.Member("textMore").Value, False)
+    Me.Excerpt = ConvertHTMLEntities(objPost.Member("excerpt").Value, False)
+    Me.Keywords = ConvertHTMLEntities(objPost.Member("keywords").Value, False)
+    Me.AllowComments = objPost.Member("allowComments").Value
+    Me.AllowPings = objPost.Member("allowPings").Value
+    Me.TextFilter = objPost.Member("textFilter").Value
+    Me.TrackBack = objPost.Member("trackBack").Value
+    Me.Categories = ConvertHTMLEntities(objPost.Member("categories").Value, False)
+    LoadData = True
+End Function
 
 Public Function SaveData(ByVal strFilePath As String) As Boolean
 On Error Resume Next
