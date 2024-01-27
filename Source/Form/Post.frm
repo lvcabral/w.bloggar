@@ -2474,7 +2474,11 @@ Dim strPost As String, strTitle As String, strFName As String
             End If
             If SupportsTitle() Then
                 If SupportsCategory() Then
+                    Dim strCategories As String
+                    'Save categories before clearing cboPostCat position
+                    strCategories = PostData.Categories
                     If cboPostCat.ListCount > 0 Then cboPostCat.ListIndex = 0
+                    PostData.Categories = strCategories
                     Select Case gAccount.GetPostsMethod
                     Case API_B2
                         If cboPostCat.ListCount > 1 Then
